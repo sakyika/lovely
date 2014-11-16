@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sakk.lovely.model.strategy.Strategy;
+import com.sakk.lovely.model.strategy.dao.StrategyDAO;
 import com.sakk.lovely.service.strategy.StrategyService;
-import com.sakk.lovely.service.strategy.dao.StrategyDAO;
 
 @Service
 @Transactional

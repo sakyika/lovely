@@ -1,4 +1,4 @@
-package com.sakk.lovely.service.strategy.dao.impl;
+package com.sakk.lovely.model.strategy.dao.impl;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sakk.lovely.model.strategy.Strategy;
-import com.sakk.lovely.service.strategy.dao.StrategyDAO;
+import com.sakk.lovely.model.strategy.dao.StrategyDAO;
 
 @Repository
 public class StrategyDAOImpl implements StrategyDAO {

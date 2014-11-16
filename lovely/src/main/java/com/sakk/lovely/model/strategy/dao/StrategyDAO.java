@@ -1,4 +1,4 @@
-package com.sakk.lovely.service.strategy.dao;
+package com.sakk.lovely.model.strategy.dao;
 
 import java.util.List;
 
