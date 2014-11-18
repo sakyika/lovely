@@ -18,6 +18,7 @@ import com.sakk.lovely.model.role.dao.RoleDAO;
 @Repository
 public class RoleDAOImpl implements RoleDAO {
 	static Logger logger = LoggerFactory.getLogger(RoleDAOImpl.class);
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
