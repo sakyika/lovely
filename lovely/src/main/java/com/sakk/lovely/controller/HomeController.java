@@ -42,7 +42,7 @@ public class HomeController {
 		if (principal instanceof User) {
 			rolename = ((User) principal).getRole().getRolename();
 		} else {
-			logger.error("Principal is not an instance of com.dtr.oas.model.User");
+			logger.error("Principal is not an instance of com.sakk.lovely.model.user.User");
 		}
 		return rolename;
 	}
