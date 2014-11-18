@@ -35,6 +35,10 @@ public class HomeController {
 		String rolename = "";
 		Object principal = SecurityContextHolder.getContext()
 				.getAuthentication().getPrincipal();
+
+		System.out.println("right after getting principal"
+				+ principal.toString());
+
 		if (principal instanceof User) {
 			rolename = ((User) principal).getRole().getRolename();
 		} else {
