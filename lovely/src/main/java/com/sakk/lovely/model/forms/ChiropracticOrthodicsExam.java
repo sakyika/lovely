@@ -9,9 +9,6 @@ public class ChiropracticOrthodicsExam extends BaseEntity implements
 
 	private static final long serialVersionUID = 2L;
 
-	@Override
-	public void create() {
-
-	}
+	
 
 }

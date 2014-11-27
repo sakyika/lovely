@@ -30,6 +30,7 @@ public class ThymeleafConfig {
 	public ThymeleafViewResolver thymeleafViewResolver() {
 		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
 		resolver.setTemplateEngine(templateEngine());
+		resolver.setCache(false);
 		return resolver;
 	}
 }
