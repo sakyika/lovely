@@ -8,7 +8,7 @@ import com.sakk.lovely.model.BaseEntity;
  * PAST CHILDHOOD
  */
 
-public class ChiroPastChildhood extends BaseEntity {
+public class ChiroChildhood extends BaseEntity {
 
 	private boolean childhoodTruama;
 

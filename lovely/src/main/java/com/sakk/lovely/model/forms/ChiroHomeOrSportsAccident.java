@@ -8,7 +8,7 @@ import com.sakk.lovely.model.BaseEntity;
  * PAST HOME/SPORTS ACCIDENT
  */
 
-public class ChiroPastHomeOrSportsAccident extends BaseEntity {
+public class ChiroHomeOrSportsAccident extends BaseEntity {
 
 	private boolean homeSportsAccident;
 

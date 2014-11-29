@@ -8,7 +8,7 @@ import com.sakk.lovely.model.BaseEntity;
  * PAST WORK ACCIDENTS
  */
 
-public class ChiroPastWorkAccident extends BaseEntity {
+public class ChiroWorkAccident extends BaseEntity {
 
 	private boolean workAccident;
 

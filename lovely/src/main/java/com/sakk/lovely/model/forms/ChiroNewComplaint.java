@@ -8,7 +8,7 @@ import com.sakk.lovely.model.BaseEntity;
  * CURRENT CONDITION/PRESENT COMPLAINT
  */
 
-public class ChiroPresentCondition extends BaseEntity {
+public class ChiroNewComplaint extends BaseEntity {
 
 	private boolean presentComplaintSharp;
 

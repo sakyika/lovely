@@ -8,7 +8,7 @@ import com.sakk.lovely.model.BaseEntity;
  * PREVIOUS CHIROPRACTIC EXPERIENCE
  */
 
-public class ChiroExperience extends BaseEntity {
+public class ChiroChiropracticExperience extends BaseEntity {
 
 	private String previousChiropractor;
 
