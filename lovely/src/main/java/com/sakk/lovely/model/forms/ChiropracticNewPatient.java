@@ -399,7 +399,7 @@ public class ChiropracticNewPatient extends BaseEntity implements
 	}
 
 	public void create() {
-		// just checking
+		// just checking, i last comment
 	}
 
 }
