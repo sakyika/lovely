@@ -23,14 +23,14 @@ import com.sakk.lovely.model.Title;
  */
 
 @Entity
-@Table(name = "CHIROPATIENT_GENERALINFO")
+@Table(name = "CHIRO_GENERALINFO")
 public class ChiropPatientGeneralInfo extends BaseEntity {
 
 	private static final long serialVersionUID = 96285180113476324L;
 	static Logger logger = LoggerFactory.getLogger(ChiropPatientGeneralInfo.class);
 
 	@Enumerated(EnumType.STRING)
-	private Title Title;
+	private Title title;
 
 	@Column(name = "firstname", length = 50)
 	private String firstName;
