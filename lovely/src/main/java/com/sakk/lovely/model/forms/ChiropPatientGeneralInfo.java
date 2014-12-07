@@ -23,11 +23,11 @@ import com.sakk.lovely.model.Title;
  */
 
 @Entity
-@Table(name = "CHIROPATIENTINFO")
-public class ChiropPatientInfo extends BaseEntity {
+@Table(name = "CHIROPATIENT_GENERALINFO")
+public class ChiropPatientGeneralInfo extends BaseEntity {
 
 	private static final long serialVersionUID = 96285180113476324L;
-	static Logger logger = LoggerFactory.getLogger(ChiropPatientInfo.class);
+	static Logger logger = LoggerFactory.getLogger(ChiropPatientGeneralInfo.class);
 
 	@Enumerated(EnumType.STRING)
 	private Title Title;
@@ -48,7 +48,7 @@ public class ChiropPatientInfo extends BaseEntity {
 	@Column(name = "homephone", length = 50)
 	private String homePhone;
 
-	@Column(name = "lastname", length = 50)
+	@Column(name = "workphone", length = 50)
 	private String workPhone;
 
 	@Column(name = "cellphone", length = 50)
