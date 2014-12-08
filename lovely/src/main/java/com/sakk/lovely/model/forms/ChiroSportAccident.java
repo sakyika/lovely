@@ -13,18 +13,18 @@ import org.hibernate.annotations.Type;
 import com.sakk.lovely.model.BaseEntity;
 
 /**
- * PAST HOME/SPORTS ACCIDENT
+ * PAST SPORTS ACCIDENT
  */
 
 @Entity
-@Table(name = "CHIRO_HOME_SPORTS_ACCIDENT")
-public class ChiroHomeOrSportsAccident extends BaseEntity {
+@Table(name = "CHIRO_SPORTS_ACCIDENT")
+public class ChiroSportAccident extends BaseEntity {
 
 	@Type(type = "yes_no")
-	private boolean homeSportsAccident;
+	private boolean sportsAccident;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date homeSportsAccidentDate;
+	private Date sportsAccidentDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private String bodyPartInjured;
