@@ -2,26 +2,46 @@ package com.sakk.lovely.model.forms;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Type;
+
 import com.sakk.lovely.model.BaseEntity;
 
 /**
  * PAST HOME/SPORTS ACCIDENT
  */
 
+@Entity
+@Table(name = "CHIRO_HOME_SPORTS_ACCIDENT")
 public class ChiroHomeOrSportsAccident extends BaseEntity {
 
+	@Type(type = "yes_no")
 	private boolean homeSportsAccident;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date homeSportsAccidentDate;
 
-	private String homeSportsAccidentBodyPartInjured;
+	@Temporal(TemporalType.TIMESTAMP)
+	private String bodyPartInjured;
 
-	private String homeSportsAccidentBodyPartInjuryResolved;
+	@Type(type = "yes_no")
+	private boolean injuryResolved;
 
-	private String homeSportsAccidentBriefAccount;
+	@Column(name = "ACCIDENT_BRIEF_ACCOUNT")
+	private String accidentBriefAccount;
 
-	private String homeSportsCareReceivedDoctor;
+	@Type(type = "yes_no")
+	private boolean medicalCareReceived;
 
-	private String homeSportsCareReceivedType;
+	@Column(name = "CARE_GIVEN_BY")
+	private String careGivenBy;
+
+	@Column(name = "TYPE_OF_CARE_GIVEN")
+	private String careTypeGiven;
 
 }

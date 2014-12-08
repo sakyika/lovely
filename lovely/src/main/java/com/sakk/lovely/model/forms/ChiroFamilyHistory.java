@@ -1,5 +1,8 @@
 package com.sakk.lovely.model.forms;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Type;
 
 import com.sakk.lovely.model.BaseEntity;
@@ -8,6 +11,8 @@ import com.sakk.lovely.model.BaseEntity;
  * FAMILY HISTORY
  */
 
+@Entity
+@Table(name = "CHIRO_FAMILY_HISTORY")
 public class ChiroFamilyHistory extends BaseEntity {
 
 	@Type(type = "yes_no")
