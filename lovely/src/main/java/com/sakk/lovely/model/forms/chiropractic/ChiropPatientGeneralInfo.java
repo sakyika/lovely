@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.forms;
+package com.sakk.lovely.model.forms.chiropractic;
 
 import java.util.Date;
 

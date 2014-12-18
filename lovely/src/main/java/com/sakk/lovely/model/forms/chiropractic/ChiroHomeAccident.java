@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.forms;
+package com.sakk.lovely.model.forms.chiropractic;
 
 import java.util.Date;
 
@@ -26,7 +26,7 @@ public class ChiroHomeAccident extends BaseEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date homeSportsAccidentDate;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "BODY_PART_INJURED")
 	private String bodyPartInjured;
 
 	@Type(type = "yes_no")

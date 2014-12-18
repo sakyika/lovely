@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.forms;
+package com.sakk.lovely.model.forms.chiropractic;
 
 import java.util.Date;
 
@@ -13,27 +13,27 @@ import org.hibernate.annotations.Type;
 import com.sakk.lovely.model.BaseEntity;
 
 /**
- * PAST SPORTS ACCIDENT
+ * PAST CHILDHOOD
  */
 
 @Entity
-@Table(name = "CHIRO_SPORTS_ACCIDENT")
-public class ChiroSportAccident extends BaseEntity {
+@Table(name = "CHIRO_CHILDHOOD_TRUAMA")
+public class ChiroChildhoodTruama extends BaseEntity {
 
 	@Type(type = "yes_no")
-	private boolean sportsAccident;
+	private boolean childhoodTruama;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date sportsAccidentDate;
+	@Temporal(TemporalType.DATE)
+	private Date childhoodTruamaDate;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "BODY_PART_INJURED")
 	private String bodyPartInjured;
 
 	@Type(type = "yes_no")
 	private boolean injuryResolved;
 
-	@Column(name = "ACCIDENT_BRIEF_ACCOUNT")
-	private String accidentBriefAccount;
+	@Column(name = "BRIEF_ACCOUNT_OF_TRUAMA")
+	private String briefAccountOfAccident;
 
 	@Type(type = "yes_no")
 	private boolean medicalCareReceived;

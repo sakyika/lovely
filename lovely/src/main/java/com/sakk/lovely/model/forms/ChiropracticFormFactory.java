@@ -1,5 +1,7 @@
 package com.sakk.lovely.model.forms;
 
+import com.sakk.lovely.model.forms.chiropractic.ChiropracticForm;
+
 public class ChiropracticFormFactory extends FormAbstractFactory {
 
 	@Override

@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.forms;
+package com.sakk.lovely.model.forms.chiropractic;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,12 +20,14 @@ import com.sakk.lovely.model.SleepPosition;
 public class ChiroHealthHabits extends BaseEntity {
 
 	@Type(type = "yes_no")
+	@Column(name = "SMOKER")
 	private boolean smoke;
 
 	@Column(name = "SMOKE_QUANTITY")
 	private String smokeQuantity;
 
 	@Type(type = "yes_no")
+	@Column(name = "DID_DO_DRINK")
 	private boolean didDoDrink;
 
 	@Column(name = "AMOUNT_OF_DRINKS")
@@ -38,6 +40,7 @@ public class ChiroHealthHabits extends BaseEntity {
 	private String sportsExerciseActivity;
 
 	@Type(type = "yes_no")
+	@Column(name = "EXERCISE_REGULARLY")
 	private boolean exerciseRegularly;
 
 	@Column(name = "EXERCISE_FREQUENCY")

@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.sakk.lovely.model.BaseEntity;
+import com.sakk.lovely.model.forms.chiropractic.ChiropracticForm;
 
 @Entity
 @Table(name = "ChiropracticNewPatient")

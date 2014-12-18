@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.forms.Chiropractic;
+package com.sakk.lovely.model.forms.chiropractic;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
