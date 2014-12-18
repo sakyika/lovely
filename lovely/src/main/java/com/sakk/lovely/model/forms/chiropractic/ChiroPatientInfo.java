@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,53 +25,60 @@ import com.sakk.lovely.model.Title;
  */
 
 @Entity
-@Table(name = "CHIRO_GENERALINFO")
-public class ChiropPatientGeneralInfo extends BaseEntity {
+@Table(name = "CHIRO_PATIENT_GENERAL_INFO")
+public class ChiroPatientInfo extends BaseEntity {
 
 	private static final long serialVersionUID = 96285180113476324L;
-	static Logger logger = LoggerFactory.getLogger(ChiropPatientGeneralInfo.class);
+	static Logger logger = LoggerFactory
+			.getLogger(ChiroPatientInfo.class);
+
+	@Id
+	@Column(name="PATIENT_ID")
+	@GeneratedValue
+	private Integer patientId;
 
 	@Enumerated(EnumType.STRING)
+	@Column(name = "TITLE")
 	private Title title;
 
-	@Column(name = "firstname", length = 50)
+	@Column(name = "FIRST_NAME", length = 50)
 	private String firstName;
 
-	@Column(name = "lastname", length = 50)
+	@Column(name = "LAST_NAME", length = 50)
 	private String lastName;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "DOB")
 	private Date DOB;
 
-	@Column(name = "address", length = 50)
+	@Column(name = "ADDRESS", length = 50)
 	private String address;
 
-	@Column(name = "homephone", length = 50)
+	@Column(name = "HOME_PHONE", length = 50)
 	private String homePhone;
 
-	@Column(name = "workphone", length = 50)
+	@Column(name = "WORK_PHONE", length = 50)
 	private String workPhone;
 
-	@Column(name = "cellphone", length = 50)
+	@Column(name = "CELL_PHONE", length = 50)
 	private String cellPhone;
 
-	@Column(name = "occupation", length = 50)
+	@Column(name = "OCCUPATION", length = 50)
 	private String occupation;
 
-	@Column(name = "employer", length = 50)
+	@Column(name = "EMPLOYER", length = 50)
 	private String employer;
 
-	@Column(name = "email", length = 50)
+	@Column(name = "EMAIL", length = 50)
 	private String email;
 
-	@Column(name = "hearaboutus", length = 50)
+	@Column(name = "HEAR_ABOUT_US", length = 50)
 	private String hearAboutUs;
 
-	@Column(name = "emergency_contact", length = 50)
+	@Column(name = "EMERGENCY_CONTACT", length = 50)
 	private String emergencyContact;
 
-	@Column(name = "emergency_contact_phone", length = 50)
+	@Column(name = "EMERGENCY_CONTACT_PHONE", length = 50)
 	private String emergencyContactPhone;
 
 }
