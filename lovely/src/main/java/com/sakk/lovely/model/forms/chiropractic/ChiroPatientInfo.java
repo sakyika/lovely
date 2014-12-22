@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,16 +27,14 @@ import com.sakk.lovely.model.Title;
  */
 
 @Entity
-@Table(name = "CHIRO_PATIENT_GENERAL_INFO")
+@Table(name = "CHIRO_PATIENT_INFO")
 public class ChiroPatientInfo extends BaseEntity {
 
 	private static final long serialVersionUID = 96285180113476324L;
-	static Logger logger = LoggerFactory
-			.getLogger(ChiroPatientInfo.class);
+	static Logger logger = LoggerFactory.getLogger(ChiroPatientInfo.class);
 
 	@Id
-	@Column(name="PATIENT_ID")
-	@GeneratedValue
+	@Column(name = "PATIENT_ID", unique = true, nullable = false)
 	private Integer patientId;
 
 	@Enumerated(EnumType.STRING)

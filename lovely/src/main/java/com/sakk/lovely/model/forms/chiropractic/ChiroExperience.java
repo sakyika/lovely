@@ -17,8 +17,8 @@ import com.sakk.lovely.model.BaseEntity;
  */
 
 @Entity
-@Table(name = "CHIROPRACTOR_EXPERIENCE")
-public class ChiroChiropracticExperience extends BaseEntity {
+@Table(name = "CHIROPRACTIC_EXPERIENCE")
+public class ChiroExperience extends BaseEntity {
 
 	@Column(name = "Previous_Chiropractor_Name", length = 50)
 	private String previousChiropractorName;
@@ -33,3 +33,4 @@ public class ChiroChiropracticExperience extends BaseEntity {
 	private boolean xRay;
 
 }
+
