@@ -9,7 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -28,11 +28,11 @@ public class ChiroMotorVehicleAccident extends BaseEntity {
 	@Id
 	@Column(name = "MOTORVEHICLEACCIDENT_ID", unique = true, nullable = false)
 	private Integer chiroExperienceId;
-	
-	@OneToOne(cascade=CascadeType.ALL)
+
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
 	private ChiroPatientInfo patientInfo;
-	
+
 	@Type(type = "yes_no")
 	@Column(name = "MOTOR_VEHICLE_ACCIDENT")
 	private boolean motorVehicleAccident;

@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Type;
 
@@ -23,7 +23,7 @@ public class ChiroWorkAccident extends BaseEntity {
 	@Column(name = "WORKACCIDENT_ID", unique = true, nullable = false)
 	private Integer workAccidentId;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
 	private ChiroPatientInfo patientInfo;
 	

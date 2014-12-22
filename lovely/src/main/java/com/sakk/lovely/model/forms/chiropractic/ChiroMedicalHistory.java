@@ -9,7 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -23,12 +23,12 @@ import com.sakk.lovely.model.Pregnancy;
  */
 
 public class ChiroMedicalHistory extends BaseEntity {
-	
+
 	@Id
 	@Column(name = "MEDICALHISTORY_ID", unique = true, nullable = false)
 	private Integer medicalHistoryId;
-	
-	@ManyToOne(cascade=CascadeType.ALL)
+
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinTable(name = "CHIROPATIENTINFO_MEDICALHISTORY", joinColumns = { @JoinColumn(name = "MEDICAL_HISTORY_ID", referencedColumnName = "MEDICALHISTORY_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
 	private ChiroPatientInfo patientInfo;
 

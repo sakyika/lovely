@@ -9,7 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -30,7 +30,7 @@ public class ChiroComplaint extends BaseEntity {
 	@Column(name = "COMPLAINT_ID", unique = true, nullable = false)
 	private Integer complaintId;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinTable(name = "CHIROPATIENTINFO_COMPLAINT", joinColumns = { @JoinColumn(name = "COMPLAINT_ID", referencedColumnName = "COMPLAINT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
 	private ChiroPatientInfo patientInfo;
 	

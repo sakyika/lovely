@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,11 +28,11 @@ public class ChiroSportAccident extends BaseEntity {
 	@Id
 	@Column(name = "SPORTSACCIDENT_ID", unique = true, nullable = false)
 	private Integer chiroExperienceId;
-	
-	@OneToOne(cascade=CascadeType.ALL)
+
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinTable(name = "CHIROPATIENTINFO_SPORTSACCIDENT", joinColumns = { @JoinColumn(name = "SPORTS_ACCIDENT_ID", referencedColumnName = "SPORTSACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
 	private ChiroPatientInfo patientInfo;
-	
+
 	@Type(type = "yes_no")
 	@Column(name = "SPORTS_ACCIDENT")
 	private boolean sportsAccident;
