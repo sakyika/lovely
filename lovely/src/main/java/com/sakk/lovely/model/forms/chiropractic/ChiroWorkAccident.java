@@ -35,6 +35,118 @@ public class ChiroWorkAccident extends BaseEntity {
 	@Column(name = "WORK_ACCIDENT_DATE")
 	private Date date;
 
+	public Integer getWorkAccidentId() {
+		return workAccidentId;
+	}
+
+	public void setWorkAccidentId(Integer workAccidentId) {
+		this.workAccidentId = workAccidentId;
+	}
+
+	public ChiroPatientInfo getPatientInfo() {
+		return patientInfo;
+	}
+
+	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+		this.patientInfo = patientInfo;
+	}
+
+	public boolean isWorkAccident() {
+		return workAccident;
+	}
+
+	public void setWorkAccident(boolean workAccident) {
+		this.workAccident = workAccident;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getEmployer() {
+		return employer;
+	}
+
+	public void setEmployer(String employer) {
+		this.employer = employer;
+	}
+
+	public boolean isWSIBClaim() {
+		return WSIBClaim;
+	}
+
+	public void setWSIBClaim(boolean wSIBClaim) {
+		WSIBClaim = wSIBClaim;
+	}
+
+	public String getPermanentOrPartialDisability() {
+		return permanentOrPartialDisability;
+	}
+
+	public void setPermanentOrPartialDisability(String permanentOrPartialDisability) {
+		this.permanentOrPartialDisability = permanentOrPartialDisability;
+	}
+
+	public String getBodyPartInjured() {
+		return bodyPartInjured;
+	}
+
+	public void setBodyPartInjured(String bodyPartInjured) {
+		this.bodyPartInjured = bodyPartInjured;
+	}
+
+	public boolean isXrayTaken() {
+		return xrayTaken;
+	}
+
+	public void setXrayTaken(boolean xrayTaken) {
+		this.xrayTaken = xrayTaken;
+	}
+
+	public String getBriefAccountOfAccident() {
+		return briefAccountOfAccident;
+	}
+
+	public void setBriefAccountOfAccident(String briefAccountOfAccident) {
+		this.briefAccountOfAccident = briefAccountOfAccident;
+	}
+
+	public String getCareGivenBy() {
+		return careGivenBy;
+	}
+
+	public void setCareGivenBy(String careGivenBy) {
+		this.careGivenBy = careGivenBy;
+	}
+
+	public String getCareGivenType() {
+		return careGivenType;
+	}
+
+	public void setCareGivenType(String careGivenType) {
+		this.careGivenType = careGivenType;
+	}
+
+	public String getInjurySustained() {
+		return injurySustained;
+	}
+
+	public void setInjurySustained(String injurySustained) {
+		this.injurySustained = injurySustained;
+	}
+
+	public boolean isInjuryResolved() {
+		return injuryResolved;
+	}
+
+	public void setInjuryResolved(boolean injuryResolved) {
+		this.injuryResolved = injuryResolved;
+	}
+
 	@Type(type = "yes_no")
 	@Column(name = "EMPLOYER")
 	private String employer;

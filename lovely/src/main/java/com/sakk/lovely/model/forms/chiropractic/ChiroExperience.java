@@ -39,6 +39,54 @@ public class ChiroExperience extends BaseEntity {
 	@Column(name = "Previous_Chiropractor_Phone")
 	private String previousChiropractorPhone;
 
+	public Integer getChiroExperienceId() {
+		return chiroExperienceId;
+	}
+
+	public void setChiroExperienceId(Integer chiroExperienceId) {
+		this.chiroExperienceId = chiroExperienceId;
+	}
+
+	public ChiroPatientInfo getPatientInfo() {
+		return patientInfo;
+	}
+
+	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+		this.patientInfo = patientInfo;
+	}
+
+	public String getPreviousChiropractorName() {
+		return previousChiropractorName;
+	}
+
+	public void setPreviousChiropractorName(String previousChiropractorName) {
+		this.previousChiropractorName = previousChiropractorName;
+	}
+
+	public String getPreviousChiropractorPhone() {
+		return previousChiropractorPhone;
+	}
+
+	public void setPreviousChiropractorPhone(String previousChiropractorPhone) {
+		this.previousChiropractorPhone = previousChiropractorPhone;
+	}
+
+	public Date getLastChiropractorVisit() {
+		return lastChiropractorVisit;
+	}
+
+	public void setLastChiropractorVisit(Date lastChiropractorVisit) {
+		this.lastChiropractorVisit = lastChiropractorVisit;
+	}
+
+	public boolean isxRay() {
+		return xRay;
+	}
+
+	public void setxRay(boolean xRay) {
+		this.xRay = xRay;
+	}
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastChiropractorVisit;
 

@@ -41,6 +41,86 @@ public class ChiroSportAccident extends BaseEntity {
 	@Column(name = "SPORTS_ACCIDENT_DATE")
 	private Date sportsAccidentDate;
 
+	public Integer getChiroExperienceId() {
+		return chiroExperienceId;
+	}
+
+	public void setChiroExperienceId(Integer chiroExperienceId) {
+		this.chiroExperienceId = chiroExperienceId;
+	}
+
+	public ChiroPatientInfo getPatientInfo() {
+		return patientInfo;
+	}
+
+	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+		this.patientInfo = patientInfo;
+	}
+
+	public boolean isSportsAccident() {
+		return sportsAccident;
+	}
+
+	public void setSportsAccident(boolean sportsAccident) {
+		this.sportsAccident = sportsAccident;
+	}
+
+	public Date getSportsAccidentDate() {
+		return sportsAccidentDate;
+	}
+
+	public void setSportsAccidentDate(Date sportsAccidentDate) {
+		this.sportsAccidentDate = sportsAccidentDate;
+	}
+
+	public String getBodyPartInjured() {
+		return bodyPartInjured;
+	}
+
+	public void setBodyPartInjured(String bodyPartInjured) {
+		this.bodyPartInjured = bodyPartInjured;
+	}
+
+	public boolean isInjuryResolved() {
+		return injuryResolved;
+	}
+
+	public void setInjuryResolved(boolean injuryResolved) {
+		this.injuryResolved = injuryResolved;
+	}
+
+	public String getAccidentBriefAccount() {
+		return accidentBriefAccount;
+	}
+
+	public void setAccidentBriefAccount(String accidentBriefAccount) {
+		this.accidentBriefAccount = accidentBriefAccount;
+	}
+
+	public boolean isMedicalCareReceived() {
+		return medicalCareReceived;
+	}
+
+	public void setMedicalCareReceived(boolean medicalCareReceived) {
+		this.medicalCareReceived = medicalCareReceived;
+	}
+
+	public String getCareGivenBy() {
+		return careGivenBy;
+	}
+
+	public void setCareGivenBy(String careGivenBy) {
+		this.careGivenBy = careGivenBy;
+	}
+
+	public String getCareTypeGiven() {
+		return careTypeGiven;
+	}
+
+	public void setCareTypeGiven(String careTypeGiven) {
+		this.careTypeGiven = careTypeGiven;
+	}
+
 	@Column(name = "BODY_PART_INJURED")
 	private String bodyPartInjured;
 

@@ -38,6 +38,206 @@ public class ChiroComplaint extends BaseEntity {
 	@Column(name = "SHARP")
 	private boolean sharp;
 
+	public Integer getComplaintId() {
+		return complaintId;
+	}
+
+	public void setComplaintId(Integer complaintId) {
+		this.complaintId = complaintId;
+	}
+
+	public ChiroPatientInfo getPatientInfo() {
+		return patientInfo;
+	}
+
+	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+		this.patientInfo = patientInfo;
+	}
+
+	public boolean isSharp() {
+		return sharp;
+	}
+
+	public void setSharp(boolean sharp) {
+		this.sharp = sharp;
+	}
+
+	public boolean isDull() {
+		return dull;
+	}
+
+	public void setDull(boolean dull) {
+		this.dull = dull;
+	}
+
+	public boolean isThrobbing() {
+		return throbbing;
+	}
+
+	public void setThrobbing(boolean throbbing) {
+		this.throbbing = throbbing;
+	}
+
+	public boolean isAching() {
+		return aching;
+	}
+
+	public void setAching(boolean aching) {
+		this.aching = aching;
+	}
+
+	public boolean isBurning() {
+		return burning;
+	}
+
+	public void setBurning(boolean burning) {
+		this.burning = burning;
+	}
+
+	public boolean isStabbing() {
+		return stabbing;
+	}
+
+	public void setStabbing(boolean stabbing) {
+		this.stabbing = stabbing;
+	}
+
+	public boolean isWeakness() {
+		return weakness;
+	}
+
+	public void setWeakness(boolean weakness) {
+		this.weakness = weakness;
+	}
+
+	public boolean isNumbness() {
+		return numbness;
+	}
+
+	public void setNumbness(boolean numbness) {
+		this.numbness = numbness;
+	}
+
+	public boolean isTingling() {
+		return tingling;
+	}
+
+	public void setTingling(boolean tingling) {
+		this.tingling = tingling;
+	}
+
+	public boolean isOther() {
+		return other;
+	}
+
+	public void setOther(boolean other) {
+		this.other = other;
+	}
+
+	public String getOtherDescription() {
+		return otherDescription;
+	}
+
+	public void setOtherDescription(String otherDescription) {
+		this.otherDescription = otherDescription;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public boolean isPreviousOccurance() {
+		return previousOccurance;
+	}
+
+	public void setPreviousOccurance(boolean previousOccurance) {
+		this.previousOccurance = previousOccurance;
+	}
+
+	public Date getPreviousOccuranceDate() {
+		return previousOccuranceDate;
+	}
+
+	public void setPreviousOccuranceDate(Date previousOccuranceDate) {
+		this.previousOccuranceDate = previousOccuranceDate;
+	}
+
+	public String getHowItHappened() {
+		return howItHappened;
+	}
+
+	public void setHowItHappened(String howItHappened) {
+		this.howItHappened = howItHappened;
+	}
+
+	public String getWhatMakesWorst() {
+		return whatMakesWorst;
+	}
+
+	public void setWhatMakesWorst(String whatMakesWorst) {
+		this.whatMakesWorst = whatMakesWorst;
+	}
+
+	public String getWhatMakesBetter() {
+		return whatMakesBetter;
+	}
+
+	public void setWhatMakesBetter(String whatMakesBetter) {
+		this.whatMakesBetter = whatMakesBetter;
+	}
+
+	public boolean isPainRadiates() {
+		return painRadiates;
+	}
+
+	public void setPainRadiates(boolean painRadiates) {
+		this.painRadiates = painRadiates;
+	}
+
+	public String getPainRadiatesWhere() {
+		return painRadiatesWhere;
+	}
+
+	public void setPainRadiatesWhere(String painRadiatesWhere) {
+		this.painRadiatesWhere = painRadiatesWhere;
+	}
+
+	public PainPattern getPainPattern() {
+		return painPattern;
+	}
+
+	public void setPainPattern(PainPattern painPattern) {
+		this.painPattern = painPattern;
+	}
+
+	public PainScale getPainScale() {
+		return painScale;
+	}
+
+	public void setPainScale(PainScale painScale) {
+		this.painScale = painScale;
+	}
+
+	public TimeOfDay getPainWorst() {
+		return painWorst;
+	}
+
+	public void setPainWorst(TimeOfDay painWorst) {
+		this.painWorst = painWorst;
+	}
+
 	@Type(type = "yes_no")
 	@Column(name = "DULL")
 	private boolean dull;

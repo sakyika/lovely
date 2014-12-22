@@ -36,6 +36,118 @@ public class ChiroHealthHabits extends BaseEntity {
 	@Column(name = "SMOKER")
 	private boolean smoke;
 
+	public Integer getHealthHabits() {
+		return healthHabits;
+	}
+
+	public void setHealthHabits(Integer healthHabits) {
+		this.healthHabits = healthHabits;
+	}
+
+	public ChiroPatientInfo getPatientInfo() {
+		return patientInfo;
+	}
+
+	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+		this.patientInfo = patientInfo;
+	}
+
+	public boolean isSmoke() {
+		return smoke;
+	}
+
+	public void setSmoke(boolean smoke) {
+		this.smoke = smoke;
+	}
+
+	public String getSmokeQuantity() {
+		return smokeQuantity;
+	}
+
+	public void setSmokeQuantity(String smokeQuantity) {
+		this.smokeQuantity = smokeQuantity;
+	}
+
+	public boolean isDidDoDrink() {
+		return didDoDrink;
+	}
+
+	public void setDidDoDrink(boolean didDoDrink) {
+		this.didDoDrink = didDoDrink;
+	}
+
+	public String getDidDoDrinkHowMuch() {
+		return didDoDrinkHowMuch;
+	}
+
+	public void setDidDoDrinkHowMuch(String didDoDrinkHowMuch) {
+		this.didDoDrinkHowMuch = didDoDrinkHowMuch;
+	}
+
+	public String getGlassesOfWaterPerDay() {
+		return glassesOfWaterPerDay;
+	}
+
+	public void setGlassesOfWaterPerDay(String glassesOfWaterPerDay) {
+		this.glassesOfWaterPerDay = glassesOfWaterPerDay;
+	}
+
+	public String getSportsExerciseActivity() {
+		return sportsExerciseActivity;
+	}
+
+	public void setSportsExerciseActivity(String sportsExerciseActivity) {
+		this.sportsExerciseActivity = sportsExerciseActivity;
+	}
+
+	public boolean isExerciseRegularly() {
+		return exerciseRegularly;
+	}
+
+	public void setExerciseRegularly(boolean exerciseRegularly) {
+		this.exerciseRegularly = exerciseRegularly;
+	}
+
+	public String getExerciseFrequency() {
+		return exerciseFrequency;
+	}
+
+	public void setExerciseFrequency(String exerciseFrequency) {
+		this.exerciseFrequency = exerciseFrequency;
+	}
+
+	public SleepPosition getSleepPosition() {
+		return sleepPosition;
+	}
+
+	public void setSleepPosition(SleepPosition sleepPosition) {
+		this.sleepPosition = sleepPosition;
+	}
+
+	public String getNumberOfPillows() {
+		return numberOfPillows;
+	}
+
+	public void setNumberOfPillows(String numberOfPillows) {
+		this.numberOfPillows = numberOfPillows;
+	}
+
+	public boolean isDidDoWearOrthodics() {
+		return didDoWearOrthodics;
+	}
+
+	public void setDidDoWearOrthodics(boolean didDoWearOrthodics) {
+		this.didDoWearOrthodics = didDoWearOrthodics;
+	}
+
+	public boolean isNoneMedicalCare() {
+		return noneMedicalCare;
+	}
+
+	public void setNoneMedicalCare(boolean noneMedicalCare) {
+		this.noneMedicalCare = noneMedicalCare;
+	}
+
 	@Column(name = "SMOKE_QUANTITY")
 	private String smokeQuantity;
 

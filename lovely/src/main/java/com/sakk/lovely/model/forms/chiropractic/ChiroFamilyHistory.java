@@ -33,6 +33,78 @@ public class ChiroFamilyHistory extends BaseEntity {
 	@Column(name = "HEART_DISEASE")
 	private boolean familyHeartDisease;
 
+	public Integer getFamilyHistoryId() {
+		return familyHistoryId;
+	}
+
+	public void setFamilyHistoryId(Integer familyHistoryId) {
+		this.familyHistoryId = familyHistoryId;
+	}
+
+	public ChiroPatientInfo getPatientInfo() {
+		return patientInfo;
+	}
+
+	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+		this.patientInfo = patientInfo;
+	}
+
+	public boolean isFamilyHeartDisease() {
+		return familyHeartDisease;
+	}
+
+	public void setFamilyHeartDisease(boolean familyHeartDisease) {
+		this.familyHeartDisease = familyHeartDisease;
+	}
+
+	public boolean isFamilyArthritis() {
+		return familyArthritis;
+	}
+
+	public void setFamilyArthritis(boolean familyArthritis) {
+		this.familyArthritis = familyArthritis;
+	}
+
+	public boolean isCancer() {
+		return cancer;
+	}
+
+	public void setCancer(boolean cancer) {
+		this.cancer = cancer;
+	}
+
+	public boolean isDiabetes() {
+		return diabetes;
+	}
+
+	public void setDiabetes(boolean diabetes) {
+		this.diabetes = diabetes;
+	}
+
+	public boolean isPsychoSocialDisease() {
+		return psychoSocialDisease;
+	}
+
+	public void setPsychoSocialDisease(boolean psychoSocialDisease) {
+		this.psychoSocialDisease = psychoSocialDisease;
+	}
+
+	public boolean isOther() {
+		return other;
+	}
+
+	public void setOther(boolean other) {
+		this.other = other;
+	}
+
+	public boolean isOtherDescription() {
+		return otherDescription;
+	}
+
+	public void setOtherDescription(boolean otherDescription) {
+		this.otherDescription = otherDescription;
+	}
+
 	@Type(type = "yes_no")
 	@Column(name = "ARTHRITIS")
 	private boolean familyArthritis;

@@ -35,6 +35,134 @@ public class ChiroPatientInfo extends BaseEntity {
 	private static final long serialVersionUID = 96285180113476324L;
 	static Logger logger = LoggerFactory.getLogger(ChiroPatientInfo.class);
 
+	public Integer getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
+	}
+
+	public List<ChiroExperience> getChiroExperienceList() {
+		return chiroExperienceList;
+	}
+
+	public void setChiroExperienceList(List<ChiroExperience> chiroExperienceList) {
+		this.chiroExperienceList = chiroExperienceList;
+	}
+
+	public Title getTitle() {
+		return title;
+	}
+
+	public void setTitle(Title title) {
+		this.title = title;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Date getDOB() {
+		return DOB;
+	}
+
+	public void setDOB(Date dOB) {
+		DOB = dOB;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getHomePhone() {
+		return homePhone;
+	}
+
+	public void setHomePhone(String homePhone) {
+		this.homePhone = homePhone;
+	}
+
+	public String getWorkPhone() {
+		return workPhone;
+	}
+
+	public void setWorkPhone(String workPhone) {
+		this.workPhone = workPhone;
+	}
+
+	public String getCellPhone() {
+		return cellPhone;
+	}
+
+	public void setCellPhone(String cellPhone) {
+		this.cellPhone = cellPhone;
+	}
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+	public String getEmployer() {
+		return employer;
+	}
+
+	public void setEmployer(String employer) {
+		this.employer = employer;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getHearAboutUs() {
+		return hearAboutUs;
+	}
+
+	public void setHearAboutUs(String hearAboutUs) {
+		this.hearAboutUs = hearAboutUs;
+	}
+
+	public String getEmergencyContact() {
+		return emergencyContact;
+	}
+
+	public void setEmergencyContact(String emergencyContact) {
+		this.emergencyContact = emergencyContact;
+	}
+
+	public String getEmergencyContactPhone() {
+		return emergencyContactPhone;
+	}
+
+	public void setEmergencyContactPhone(String emergencyContactPhone) {
+		this.emergencyContactPhone = emergencyContactPhone;
+	}
+
 	@Id
 	@Column(name = "PATIENT_ID", unique = true, nullable = false)
 	private Integer patientId;

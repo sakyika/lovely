@@ -41,6 +41,134 @@ public class ChiroMotorVehicleAccident extends BaseEntity {
 	@Column(name = "DATE")
 	private Date date;
 
+	public Integer getChiroExperienceId() {
+		return chiroExperienceId;
+	}
+
+	public void setChiroExperienceId(Integer chiroExperienceId) {
+		this.chiroExperienceId = chiroExperienceId;
+	}
+
+	public ChiroPatientInfo getPatientInfo() {
+		return patientInfo;
+	}
+
+	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+		this.patientInfo = patientInfo;
+	}
+
+	public boolean isMotorVehicleAccident() {
+		return motorVehicleAccident;
+	}
+
+	public void setMotorVehicleAccident(boolean motorVehicleAccident) {
+		this.motorVehicleAccident = motorVehicleAccident;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public DriverPassenger getDriverOrPassenger() {
+		return driverOrPassenger;
+	}
+
+	public void setDriverOrPassenger(DriverPassenger driverOrPassenger) {
+		this.driverOrPassenger = driverOrPassenger;
+	}
+
+	public boolean isWearingSeatBelt() {
+		return wearingSeatBelt;
+	}
+
+	public void setWearingSeatBelt(boolean wearingSeatBelt) {
+		this.wearingSeatBelt = wearingSeatBelt;
+	}
+
+	public VehicleCollisionPart getVehicleCollisionPart() {
+		return vehicleCollisionPart;
+	}
+
+	public void setVehicleCollisionPart(VehicleCollisionPart vehicleCollisionPart) {
+		this.vehicleCollisionPart = vehicleCollisionPart;
+	}
+
+	public boolean isStrikeHead() {
+		return strikeHead;
+	}
+
+	public void setStrikeHead(boolean strikeHead) {
+		this.strikeHead = strikeHead;
+	}
+
+	public boolean isLossConsciousness() {
+		return lossConsciousness;
+	}
+
+	public void setLossConsciousness(boolean lossConsciousness) {
+		this.lossConsciousness = lossConsciousness;
+	}
+
+	public boolean isSentToHospital() {
+		return sentToHospital;
+	}
+
+	public void setSentToHospital(boolean sentToHospital) {
+		this.sentToHospital = sentToHospital;
+	}
+
+	public boolean isXrayTaken() {
+		return xrayTaken;
+	}
+
+	public void setXrayTaken(boolean xrayTaken) {
+		this.xrayTaken = xrayTaken;
+	}
+
+	public boolean isMedicationGiven() {
+		return medicationGiven;
+	}
+
+	public void setMedicationGiven(boolean medicationGiven) {
+		this.medicationGiven = medicationGiven;
+	}
+
+	public String getCareGivenType() {
+		return careGivenType;
+	}
+
+	public void setCareGivenType(String careGivenType) {
+		this.careGivenType = careGivenType;
+	}
+
+	public String getCareGivenBy() {
+		return careGivenBy;
+	}
+
+	public void setCareGivenBy(String careGivenBy) {
+		this.careGivenBy = careGivenBy;
+	}
+
+	public String getInjuriesSustained() {
+		return injuriesSustained;
+	}
+
+	public void setInjuriesSustained(String injuriesSustained) {
+		this.injuriesSustained = injuriesSustained;
+	}
+
+	public boolean isInjuriesResolved() {
+		return injuriesResolved;
+	}
+
+	public void setInjuriesResolved(boolean injuriesResolved) {
+		this.injuriesResolved = injuriesResolved;
+	}
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "DRIVER_PASSENGER")
 	private DriverPassenger driverOrPassenger;
