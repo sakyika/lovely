@@ -29,11 +29,11 @@ import com.sakk.lovely.model.Title;
  */
 
 @Entity
-@Table(name = "CHIRO_PATIENT_INFO")
-public class ChiroPatientInfo extends BaseEntity {
+@Table(name = "CHIRO_PATIENT")
+public class ChiroPatient extends BaseEntity {
 
 	private static final long serialVersionUID = 96285180113476324L;
-	static Logger logger = LoggerFactory.getLogger(ChiroPatientInfo.class);
+	static Logger logger = LoggerFactory.getLogger(ChiroPatient.class);
 
 	public Integer getPatientId() {
 		return patientId;
@@ -168,7 +168,7 @@ public class ChiroPatientInfo extends BaseEntity {
 	private Integer patientId;
 
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
+	@JoinTable(name = "CHIROPATIENT_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
 	private List<ChiroExperience> chiroExperienceList;
 	
 	

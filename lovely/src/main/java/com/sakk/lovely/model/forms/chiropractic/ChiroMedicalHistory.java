@@ -30,7 +30,7 @@ public class ChiroMedicalHistory extends BaseEntity {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinTable(name = "CHIROPATIENTINFO_MEDICALHISTORY", joinColumns = { @JoinColumn(name = "MEDICAL_HISTORY_ID", referencedColumnName = "MEDICALHISTORY_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
-	private ChiroPatientInfo patientInfo;
+	private ChiroPatient patientInfo;
 
 	@Column(name = "FAMILY_DOCTOR_NAME")
 	private String familyDoctorName;
@@ -49,11 +49,11 @@ public class ChiroMedicalHistory extends BaseEntity {
 		this.medicalHistoryId = medicalHistoryId;
 	}
 
-	public ChiroPatientInfo getPatientInfo() {
+	public ChiroPatient getPatientInfo() {
 		return patientInfo;
 	}
 
-	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+	public void setPatientInfo(ChiroPatient patientInfo) {
 		this.patientInfo = patientInfo;
 	}
 

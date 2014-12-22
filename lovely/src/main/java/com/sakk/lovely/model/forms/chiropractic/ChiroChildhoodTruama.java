@@ -30,8 +30,8 @@ public class ChiroChildhoodTruama extends BaseEntity {
 	private Integer childhoodTruamaId;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_CHILDHOODTRUAMA", joinColumns = { @JoinColumn(name = "CHILDHOOD_TRUAMA_ID", referencedColumnName = "CHILDHOODTRUAMA_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
-	private ChiroPatientInfo patientInfo;
+	@JoinTable(name = "CHIROPATIENT_CHILDHOODTRUAMA", joinColumns = { @JoinColumn(name = "CHILDHOOD_TRUAMA_ID", referencedColumnName = "CHILDHOODTRUAMA_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
+	private ChiroPatient patientInfo;
 
 	@Type(type = "yes_no")
 	@Column(name = "CHILDHOOD_TRUAMA")

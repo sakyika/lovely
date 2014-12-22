@@ -29,8 +29,8 @@ public class ChiroHealthHabits extends BaseEntity {
 	private Integer healthHabits;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_HEALTHHABITS", joinColumns = { @JoinColumn(name = "HEALTH_HABITS_ID", referencedColumnName = "HEALTHHABITS_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
-	private ChiroPatientInfo patientInfo;
+	@JoinTable(name = "CHIROPATIENT_HEALTHHABITS", joinColumns = { @JoinColumn(name = "HEALTH_HABITS_ID", referencedColumnName = "HEALTHHABITS_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
+	private ChiroPatient patientInfo;
 	
 	@Type(type = "yes_no")
 	@Column(name = "SMOKER")
@@ -44,11 +44,11 @@ public class ChiroHealthHabits extends BaseEntity {
 		this.healthHabits = healthHabits;
 	}
 
-	public ChiroPatientInfo getPatientInfo() {
+	public ChiroPatient getPatientInfo() {
 		return patientInfo;
 	}
 
-	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+	public void setPatientInfo(ChiroPatient patientInfo) {
 		this.patientInfo = patientInfo;
 	}
 

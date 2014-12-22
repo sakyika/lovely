@@ -27,7 +27,7 @@ public class ChiroFamilyHistory extends BaseEntity {
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinTable(name = "CHIROPATIENTINFO_FAMILYHISTORY", joinColumns = { @JoinColumn(name = "FAMILY_HISTORY_ID", referencedColumnName = "FAMILYHISOTRY_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
-	private ChiroPatientInfo patientInfo;
+	private ChiroPatient patientInfo;
 	
 	@Type(type = "yes_no")
 	@Column(name = "HEART_DISEASE")
@@ -41,11 +41,11 @@ public class ChiroFamilyHistory extends BaseEntity {
 		this.familyHistoryId = familyHistoryId;
 	}
 
-	public ChiroPatientInfo getPatientInfo() {
+	public ChiroPatient getPatientInfo() {
 		return patientInfo;
 	}
 
-	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+	public void setPatientInfo(ChiroPatient patientInfo) {
 		this.patientInfo = patientInfo;
 	}
 

@@ -25,7 +25,7 @@ public class ChiroWorkAccident extends BaseEntity {
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
-	private ChiroPatientInfo patientInfo;
+	private ChiroPatient patientInfo;
 	
 	@Type(type = "yes_no")
 	@Column(name = "WORK_ACCIDENT")
@@ -43,11 +43,11 @@ public class ChiroWorkAccident extends BaseEntity {
 		this.workAccidentId = workAccidentId;
 	}
 
-	public ChiroPatientInfo getPatientInfo() {
+	public ChiroPatient getPatientInfo() {
 		return patientInfo;
 	}
 
-	public void setPatientInfo(ChiroPatientInfo patientInfo) {
+	public void setPatientInfo(ChiroPatient patientInfo) {
 		this.patientInfo = patientInfo;
 	}
 
