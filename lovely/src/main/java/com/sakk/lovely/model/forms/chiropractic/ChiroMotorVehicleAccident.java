@@ -2,7 +2,22 @@ package com.sakk.lovely.model.forms.chiropractic;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Type;
+
 import com.sakk.lovely.model.BaseEntity;
+import com.sakk.lovely.model.DriverPassenger;
+import com.sakk.lovely.model.VehicleCollisionPart;
 
 /**
  * PAST MOTOR VEHICLE ACCIDENT
@@ -10,36 +25,65 @@ import com.sakk.lovely.model.BaseEntity;
 
 public class ChiroMotorVehicleAccident extends BaseEntity {
 
+	@Id
+	@Column(name = "MOTORVEHICLEACCIDENT_ID", unique = true, nullable = false)
+	private Integer chiroExperienceId;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
+	private ChiroPatientInfo patientInfo;
+	
+	@Type(type = "yes_no")
+	@Column(name = "MOTOR_VEHICLE_ACCIDENT")
 	private boolean motorVehicleAccident;
 
-	private Date motorVehicleAccidentDate;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATE")
+	private Date date;
 
-	private enum driverPassenger {
-		DRIVER, PASSENGER
-	}
+	@Enumerated(EnumType.STRING)
+	@Column(name = "DRIVER_PASSENGER")
+	private DriverPassenger driverOrPassenger;
 
-	private boolean seatBelt;
+	@Type(type = "yes_no")
+	@Column(name = "WEARING_SEATBELT")
+	private boolean wearingSeatBelt;
 
-	private enum collision {
-		SIDE, FRONT, REAR
-	}
+	@Enumerated(EnumType.STRING)
+	@Column(name = "VEHICLE_COLLISION")
+	private VehicleCollisionPart vehicleCollisionPart;
 
+	@Type(type = "yes_no")
+	@Column(name = "STRIKE_HEAD")
 	private boolean strikeHead;
 
-	private boolean lossOfConsciousness;
+	@Type(type = "yes_no")
+	@Column(name = "LOSSCONCIOUSNESS")
+	private boolean lossConsciousness;
 
+	@Type(type = "yes_no")
+	@Column(name = "SENT_TO_HOSPITAL")
 	private boolean sentToHospital;
 
+	@Type(type = "yes_no")
+	@Column(name = "X-RAY_TAKEN")
 	private boolean xrayTaken;
 
+	@Type(type = "yes_no")
+	@Column(name = "MEDICATION_GIVEN")
 	private boolean medicationGiven;
 
-	private String motorAccidentCareReceivedDoctor;
+	@Column(name = "TYPE_OF_CARE_GIVEN")
+	private String careGivenType;
 
-	private String motorAccidentCareGiven;
+	@Column(name = "CARE_GIVEN_BY")
+	private String careGivenBy;
 
-	private String motorAccidentInjuriesSustained;
+	@Column(name = "INJURIES_SUSTAINED")
+	private String injuriesSustained;
 
-	private boolean motorAccidentInjuriesResolved;
+	@Type(type = "yes_no")
+	@Column(name = "INJURIES_RESOLVED")
+	private boolean injuriesResolved;
 
 }

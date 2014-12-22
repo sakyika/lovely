@@ -1,7 +1,9 @@
 package com.sakk.lovely.model.forms.chiropractic;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,7 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,6 +38,12 @@ public class ChiroPatientInfo extends BaseEntity {
 	@Id
 	@Column(name = "PATIENT_ID", unique = true, nullable = false)
 	private Integer patientId;
+
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
+	private List<ChiroExperience> chiroExperienceList;
+	
+	
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "TITLE")
