@@ -22,11 +22,11 @@ public class ChiroWorkAccident extends BaseEntity {
 	@Id
 	@Column(name = "WORKACCIDENT_ID", unique = true, nullable = false)
 	private Integer workAccidentId;
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	//@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "WORKACCIDENT_ID") })
 	private ChiroPatient patientInfo;
-	
+
 	@Type(type = "yes_no")
 	@Column(name = "WORK_ACCIDENT")
 	private boolean workAccident;
@@ -34,6 +34,40 @@ public class ChiroWorkAccident extends BaseEntity {
 	@Type(type = "yes_no")
 	@Column(name = "WORK_ACCIDENT_DATE")
 	private Date date;
+
+	@Type(type = "yes_no")
+	@Column(name = "EMPLOYER")
+	private String employer;
+
+	@Type(type = "yes_no")
+	@Column(name = "WSIB_CLAIM")
+	private boolean WSIBClaim;
+
+	@Column(name = "DISABILITY")
+	private String permanentOrPartialDisability;
+
+	@Column(name = "BODY_PART_INJURED")
+	private String bodyPartInjured;
+
+	@Type(type = "yes_no")
+	@Column(name = "X-RAY_TAKEN")
+	private boolean xrayTaken;
+
+	@Column(name = "BRIEF_ACCOUNT_OF_ACCIDENT")
+	private String briefAccountOfAccident;
+
+	@Column(name = "CARE_GIVEN_BY")
+	private String careGivenBy;
+
+	@Column(name = "TYPE_OF_CARE_GIVEN")
+	private String careGivenType;
+
+	@Column(name = "INJURIES_SUSTAINED")
+	private String injurySustained;
+
+	@Type(type = "yes_no")
+	@Column(name = "INJURY_RESOLVED")
+	private boolean injuryResolved;
 
 	public Integer getWorkAccidentId() {
 		return workAccidentId;
@@ -87,7 +121,8 @@ public class ChiroWorkAccident extends BaseEntity {
 		return permanentOrPartialDisability;
 	}
 
-	public void setPermanentOrPartialDisability(String permanentOrPartialDisability) {
+	public void setPermanentOrPartialDisability(
+			String permanentOrPartialDisability) {
 		this.permanentOrPartialDisability = permanentOrPartialDisability;
 	}
 
@@ -146,39 +181,5 @@ public class ChiroWorkAccident extends BaseEntity {
 	public void setInjuryResolved(boolean injuryResolved) {
 		this.injuryResolved = injuryResolved;
 	}
-
-	@Type(type = "yes_no")
-	@Column(name = "EMPLOYER")
-	private String employer;
-
-	@Type(type = "yes_no")
-	@Column(name = "WSIB_CLAIM")
-	private boolean WSIBClaim;
-
-	@Column(name = "DISABILITY")
-	private String permanentOrPartialDisability;
-
-	@Column(name = "BODY_PART_INJURED")
-	private String bodyPartInjured;
-
-	@Type(type = "yes_no")
-	@Column(name = "X-RAY_TAKEN")
-	private boolean xrayTaken;
-
-	@Column(name = "BRIEF_ACCOUNT_OF_ACCIDENT")
-	private String briefAccountOfAccident;
-
-	@Column(name = "CARE_GIVEN_BY")
-	private String careGivenBy;
-
-	@Column(name = "TYPE_OF_CARE_GIVEN")
-	private String careGivenType;
-
-	@Column(name = "INJURIES_SUSTAINED")
-	private String injurySustained;
-
-	@Type(type = "yes_no")
-	@Column(name = "INJURY_RESOLVED")
-	private boolean injuryResolved;
 
 }

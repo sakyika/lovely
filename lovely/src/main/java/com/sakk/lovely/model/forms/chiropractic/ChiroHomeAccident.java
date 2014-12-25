@@ -2,8 +2,13 @@ package com.sakk.lovely.model.forms.chiropractic;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +25,14 @@ import com.sakk.lovely.model.BaseEntity;
 @Table(name = "CHIRO_HOME_SPORTS_ACCIDENT")
 public class ChiroHomeAccident extends BaseEntity {
 
+	@Id
+	@Column(name = "HOMEACCIDENT_ID", unique = true, nullable = false)
+	private Integer homeAccidentId;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	//@JoinTable(name = "CHIROPATIENTINFO_HOMEACCIDENT", joinColumns = { @JoinColumn(name = "HOME_ACCIDENT_ID", referencedColumnName = "HOMEACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "HOMEACCIDENT_ID") })
+	private ChiroPatient patientInfo;
+
 	@Type(type = "yes_no")
 	private boolean homeSportsAccident;
 
@@ -31,6 +44,18 @@ public class ChiroHomeAccident extends BaseEntity {
 
 	@Type(type = "yes_no")
 	private boolean injuryResolved;
+
+	@Column(name = "ACCIDENT_BRIEF_ACCOUNT")
+	private String accidentBriefAccount;
+
+	@Type(type = "yes_no")
+	private boolean medicalCareReceived;
+
+	@Column(name = "CARE_GIVEN_BY")
+	private String careGivenBy;
+
+	@Column(name = "TYPE_OF_CARE_GIVEN")
+	private String careTypeGiven;
 
 	public boolean isHomeSportsAccident() {
 		return homeSportsAccident;
@@ -95,17 +120,5 @@ public class ChiroHomeAccident extends BaseEntity {
 	public void setCareTypeGiven(String careTypeGiven) {
 		this.careTypeGiven = careTypeGiven;
 	}
-
-	@Column(name = "ACCIDENT_BRIEF_ACCOUNT")
-	private String accidentBriefAccount;
-
-	@Type(type = "yes_no")
-	private boolean medicalCareReceived;
-
-	@Column(name = "CARE_GIVEN_BY")
-	private String careGivenBy;
-
-	@Column(name = "TYPE_OF_CARE_GIVEN")
-	private String careTypeGiven;
 
 }

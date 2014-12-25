@@ -30,7 +30,7 @@ public class ChiroMotorVehicleAccident extends BaseEntity {
 	private Integer chiroExperienceId;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
+	//@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") })
 	private ChiroPatient patientInfo;
 
 	@Type(type = "yes_no")
@@ -40,6 +40,51 @@ public class ChiroMotorVehicleAccident extends BaseEntity {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DATE")
 	private Date date;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "DRIVER_PASSENGER")
+	private DriverPassenger driverOrPassenger;
+
+	@Type(type = "yes_no")
+	@Column(name = "WEARING_SEATBELT")
+	private boolean wearingSeatBelt;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "VEHICLE_COLLISION")
+	private VehicleCollisionPart vehicleCollisionPart;
+
+	@Type(type = "yes_no")
+	@Column(name = "STRIKE_HEAD")
+	private boolean strikeHead;
+
+	@Type(type = "yes_no")
+	@Column(name = "LOSSCONCIOUSNESS")
+	private boolean lossConsciousness;
+
+	@Type(type = "yes_no")
+	@Column(name = "SENT_TO_HOSPITAL")
+	private boolean sentToHospital;
+
+	@Type(type = "yes_no")
+	@Column(name = "X-RAY_TAKEN")
+	private boolean xrayTaken;
+
+	@Type(type = "yes_no")
+	@Column(name = "MEDICATION_GIVEN")
+	private boolean medicationGiven;
+
+	@Column(name = "TYPE_OF_CARE_GIVEN")
+	private String careGivenType;
+
+	@Column(name = "CARE_GIVEN_BY")
+	private String careGivenBy;
+
+	@Column(name = "INJURIES_SUSTAINED")
+	private String injuriesSustained;
+
+	@Type(type = "yes_no")
+	@Column(name = "INJURIES_RESOLVED")
+	private boolean injuriesResolved;
 
 	public Integer getChiroExperienceId() {
 		return chiroExperienceId;
@@ -93,7 +138,8 @@ public class ChiroMotorVehicleAccident extends BaseEntity {
 		return vehicleCollisionPart;
 	}
 
-	public void setVehicleCollisionPart(VehicleCollisionPart vehicleCollisionPart) {
+	public void setVehicleCollisionPart(
+			VehicleCollisionPart vehicleCollisionPart) {
 		this.vehicleCollisionPart = vehicleCollisionPart;
 	}
 
@@ -168,50 +214,5 @@ public class ChiroMotorVehicleAccident extends BaseEntity {
 	public void setInjuriesResolved(boolean injuriesResolved) {
 		this.injuriesResolved = injuriesResolved;
 	}
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "DRIVER_PASSENGER")
-	private DriverPassenger driverOrPassenger;
-
-	@Type(type = "yes_no")
-	@Column(name = "WEARING_SEATBELT")
-	private boolean wearingSeatBelt;
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "VEHICLE_COLLISION")
-	private VehicleCollisionPart vehicleCollisionPart;
-
-	@Type(type = "yes_no")
-	@Column(name = "STRIKE_HEAD")
-	private boolean strikeHead;
-
-	@Type(type = "yes_no")
-	@Column(name = "LOSSCONCIOUSNESS")
-	private boolean lossConsciousness;
-
-	@Type(type = "yes_no")
-	@Column(name = "SENT_TO_HOSPITAL")
-	private boolean sentToHospital;
-
-	@Type(type = "yes_no")
-	@Column(name = "X-RAY_TAKEN")
-	private boolean xrayTaken;
-
-	@Type(type = "yes_no")
-	@Column(name = "MEDICATION_GIVEN")
-	private boolean medicationGiven;
-
-	@Column(name = "TYPE_OF_CARE_GIVEN")
-	private String careGivenType;
-
-	@Column(name = "CARE_GIVEN_BY")
-	private String careGivenBy;
-
-	@Column(name = "INJURIES_SUSTAINED")
-	private String injuriesSustained;
-
-	@Type(type = "yes_no")
-	@Column(name = "INJURIES_RESOLVED")
-	private boolean injuriesResolved;
 
 }

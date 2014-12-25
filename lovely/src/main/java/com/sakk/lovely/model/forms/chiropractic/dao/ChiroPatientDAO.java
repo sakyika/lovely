@@ -25,5 +25,7 @@ public interface ChiroPatientDAO {
 			throws ChiroPatientNotFoundException;
 
 	public List<ChiroPatient> getPatients();
+	
+	
 
 }

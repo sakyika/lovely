@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,22 +22,28 @@ import com.sakk.lovely.model.BaseEntity;
  */
 
 @Entity
-@Table(name = "CHIRO_EXPERIENCE")
+@Table(name = "CHIRO_EXPERIENCES")
 public class ChiroExperience extends BaseEntity {
-	
+
 	@Id
 	@Column(name = "CHIROEXPERIENCE_ID", unique = true, nullable = false)
 	private Integer chiroExperienceId;
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
+
+	@OneToOne(cascade = CascadeType.ALL)
+	//@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
 	private ChiroPatient patientInfo;
-	
+
 	@Column(name = "Previous_Chiropractor_Name", length = 50)
 	private String previousChiropractorName;
 
 	@Column(name = "Previous_Chiropractor_Phone")
 	private String previousChiropractorPhone;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastChiropractorVisit;
+
+	@Type(type = "yes_no")
+	private boolean xRay;
 
 	public Integer getChiroExperienceId() {
 		return chiroExperienceId;
@@ -87,11 +93,4 @@ public class ChiroExperience extends BaseEntity {
 		this.xRay = xRay;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date lastChiropractorVisit;
-
-	@Type(type = "yes_no")
-	private boolean xRay;
-
 }
-

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,11 +30,99 @@ import com.sakk.lovely.model.Title;
  */
 
 @Entity
-@Table(name = "CHIRO_PATIENT")
+@Table(name = "CHIRO_PATIENTS")
 public class ChiroPatient extends BaseEntity {
 
 	private static final long serialVersionUID = 96285180113476324L;
 	static Logger logger = LoggerFactory.getLogger(ChiroPatient.class);
+
+	@Id
+	@Column(name = "CHIROPATIENT_ID", unique = true, nullable = false)
+	private Integer patientId;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
+	private List<ChiroExperience> chiroExperienceList;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	//@JoinTable(name = "CHIROPATIENTINFO_FAMILYHISTORY", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "FAMILY_HISOTRY_ID", referencedColumnName = "FAMILYHISOTRY_ID") })
+	private ChiroFamilyHistory familyHistory;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	//@JoinTable(name = "CHIROPATIENTINFO_MEDICALHISTORY", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "MEDICAL_HISTORY_ID", referencedColumnName = "MEDICALHISTORY_ID") })
+	private ChiroMedicalHistory medicalHistory;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	//@JoinTable(name = "CHIROPATIENTINFO_HEALTHHABITS", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "HEALTH_HABITS_ID", referencedColumnName = "HEALTHHABITS_ID") })
+	private ChiroHealthHabits healthHabits;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENT_CHILDHOODTRUAMA", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHILDHOOD_TRUAMA_ID", referencedColumnName = "CHILDHOODTRUAMA_ID") })
+	private List<ChiroChildhoodTruama> childhoolTruamaList;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") })
+	private List<ChiroMotorVehicleAccident> motorVehicleAccident;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_HOMEACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "HOME_ACCIDENT_ID", referencedColumnName = "HOMEACCIDENT_ID") })
+	private List<ChiroHomeAccident> homeAccident;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_SPORTSACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "SPORTS_ACCIDENT_ID", referencedColumnName = "SPORTSACCIDENT_ID") })
+	private List<ChiroSportAccident> sportsAccident;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") })
+	private List<ChiroWorkAccident> workAccident;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_COMPLAINT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMPLAINT_ID", referencedColumnName = "COMPLAINT_ID") })
+	private List<ChiroComplaint> complaint;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "TITLE")
+	private Title title;
+
+	@Column(name = "FIRST_NAME", length = 50)
+	private String firstName;
+
+	@Column(name = "LAST_NAME", length = 50)
+	private String lastName;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "DOB")
+	private Date DOB;
+
+	@Column(name = "ADDRESS", length = 50)
+	private String address;
+
+	@Column(name = "HOME_PHONE", length = 50)
+	private String homePhone;
+
+	@Column(name = "WORK_PHONE", length = 50)
+	private String workPhone;
+
+	@Column(name = "CELL_PHONE", length = 50)
+	private String cellPhone;
+
+	@Column(name = "OCCUPATION", length = 50)
+	private String occupation;
+
+	@Column(name = "EMPLOYER", length = 50)
+	private String employer;
+
+	@Column(name = "EMAIL", length = 50)
+	private String email;
+
+	@Column(name = "HEAR_ABOUT_US", length = 50)
+	private String hearAboutUs;
+
+	@Column(name = "EMERGENCY_CONTACT", length = 50)
+	private String emergencyContact;
+
+	@Column(name = "EMERGENCY_CONTACT_PHONE", length = 50)
+	private String emergencyContactPhone;
 
 	public Integer getPatientId() {
 		return patientId;
@@ -163,58 +252,80 @@ public class ChiroPatient extends BaseEntity {
 		this.emergencyContactPhone = emergencyContactPhone;
 	}
 
-	@Id
-	@Column(name = "PATIENT_ID", unique = true, nullable = false)
-	private Integer patientId;
+	public ChiroFamilyHistory getFamilyHistory() {
+		return familyHistory;
+	}
 
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENT_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
-	private List<ChiroExperience> chiroExperienceList;
+	public void setFamilyHistory(ChiroFamilyHistory familyHistory) {
+		this.familyHistory = familyHistory;
+	}
+
+	public ChiroMedicalHistory getMedicalHistory() {
+		return medicalHistory;
+	}
+
+	public void setMedicalHistory(ChiroMedicalHistory medicalHistory) {
+		this.medicalHistory = medicalHistory;
+	}
+
+	public ChiroHealthHabits getHealthHabits() {
+		return healthHabits;
+	}
+
+	public void setHealthHabits(ChiroHealthHabits healthHabits) {
+		this.healthHabits = healthHabits;
+	}
+
+	public List<ChiroChildhoodTruama> getChildhoolTruamaList() {
+		return childhoolTruamaList;
+	}
+
+	public void setChildhoolTruamaList(
+			List<ChiroChildhoodTruama> childhoolTruamaList) {
+		this.childhoolTruamaList = childhoolTruamaList;
+	}
+
+	public List<ChiroMotorVehicleAccident> getMotorVehicleAccident() {
+		return motorVehicleAccident;
+	}
+
+	public void setMotorVehicleAccident(
+			List<ChiroMotorVehicleAccident> motorVehicleAccident) {
+		this.motorVehicleAccident = motorVehicleAccident;
+	}
+
+	public List<ChiroHomeAccident> getHomeAccident() {
+		return homeAccident;
+	}
+
+	public void setHomeAccident(List<ChiroHomeAccident> homeAccident) {
+		this.homeAccident = homeAccident;
+	}
+
+	public List<ChiroSportAccident> getSportsAccident() {
+		return sportsAccident;
+	}
+
+	public void setSportsAccident(List<ChiroSportAccident> sportsAccident) {
+		this.sportsAccident = sportsAccident;
+	}
+
+	public List<ChiroWorkAccident> getWorkAccident() {
+		return workAccident;
+	}
+
+	public void setWorkAccident(List<ChiroWorkAccident> workAccident) {
+		this.workAccident = workAccident;
+	}
+
+	public List<ChiroComplaint> getComplaint() {
+		return complaint;
+	}
+
+	public void setComplaint(List<ChiroComplaint> complaint) {
+		this.complaint = complaint;
+	}
 	
 	
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "TITLE")
-	private Title title;
-
-	@Column(name = "FIRST_NAME", length = 50)
-	private String firstName;
-
-	@Column(name = "LAST_NAME", length = 50)
-	private String lastName;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "DOB")
-	private Date DOB;
-
-	@Column(name = "ADDRESS", length = 50)
-	private String address;
-
-	@Column(name = "HOME_PHONE", length = 50)
-	private String homePhone;
-
-	@Column(name = "WORK_PHONE", length = 50)
-	private String workPhone;
-
-	@Column(name = "CELL_PHONE", length = 50)
-	private String cellPhone;
-
-	@Column(name = "OCCUPATION", length = 50)
-	private String occupation;
-
-	@Column(name = "EMPLOYER", length = 50)
-	private String employer;
-
-	@Column(name = "EMAIL", length = 50)
-	private String email;
-
-	@Column(name = "HEAR_ABOUT_US", length = 50)
-	private String hearAboutUs;
-
-	@Column(name = "EMERGENCY_CONTACT", length = 50)
-	private String emergencyContact;
-
-	@Column(name = "EMERGENCY_CONTACT_PHONE", length = 50)
-	private String emergencyContactPhone;
 
 }

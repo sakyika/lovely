@@ -30,7 +30,7 @@ public class ChiroSportAccident extends BaseEntity {
 	private Integer chiroExperienceId;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_SPORTSACCIDENT", joinColumns = { @JoinColumn(name = "SPORTS_ACCIDENT_ID", referencedColumnName = "SPORTSACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "PATIENT_ID") })
+	//@JoinTable(name = "CHIROPATIENTINFO_SPORTSACCIDENT", joinColumns = { @JoinColumn(name = "SPORTS_ACCIDENT_ID", referencedColumnName = "SPORTSACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "SPORTSACCIDENT_ID") })
 	private ChiroPatient patientInfo;
 
 	@Type(type = "yes_no")
@@ -40,6 +40,26 @@ public class ChiroSportAccident extends BaseEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "SPORTS_ACCIDENT_DATE")
 	private Date sportsAccidentDate;
+
+	@Column(name = "BODY_PART_INJURED")
+	private String bodyPartInjured;
+
+	@Type(type = "yes_no")
+	@Column(name = "INURY_RESOLVED")
+	private boolean injuryResolved;
+
+	@Column(name = "ACCIDENT_BRIEF_ACCOUNT")
+	private String accidentBriefAccount;
+
+	@Type(type = "yes_no")
+	@Column(name = "MEDICAL_CARE_RECEIVED")
+	private boolean medicalCareReceived;
+
+	@Column(name = "CARE_GIVEN_BY")
+	private String careGivenBy;
+
+	@Column(name = "TYPE_OF_CARE_GIVEN")
+	private String careTypeGiven;
 
 	public Integer getChiroExperienceId() {
 		return chiroExperienceId;
@@ -120,25 +140,5 @@ public class ChiroSportAccident extends BaseEntity {
 	public void setCareTypeGiven(String careTypeGiven) {
 		this.careTypeGiven = careTypeGiven;
 	}
-
-	@Column(name = "BODY_PART_INJURED")
-	private String bodyPartInjured;
-
-	@Type(type = "yes_no")
-	@Column(name = "INURY_RESOLVED")
-	private boolean injuryResolved;
-
-	@Column(name = "ACCIDENT_BRIEF_ACCOUNT")
-	private String accidentBriefAccount;
-
-	@Type(type = "yes_no")
-	@Column(name = "MEDICAL_CARE_RECEIVED")
-	private boolean medicalCareReceived;
-
-	@Column(name = "CARE_GIVEN_BY")
-	private String careGivenBy;
-
-	@Column(name = "TYPE_OF_CARE_GIVEN")
-	private String careTypeGiven;
 
 }
