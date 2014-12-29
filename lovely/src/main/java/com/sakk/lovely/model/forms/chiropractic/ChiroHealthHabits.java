@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -12,6 +14,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sakk.lovely.model.BaseEntity;
 import com.sakk.lovely.model.SleepPosition;
@@ -23,13 +27,15 @@ import com.sakk.lovely.model.SleepPosition;
 @Entity
 @Table(name = "CHIRO_HEALTH_HABITS")
 public class ChiroHealthHabits extends BaseEntity {
+	
+	private static final long serialVersionUID = 96285180113476324L;
+	static Logger logger = LoggerFactory.getLogger(ChiroHealthHabits.class);
 
-	@Id
 	@Column(name = "HEALTHHABITS_ID", unique = true, nullable = false)
-	private Integer healthHabits;
+	private Integer healthHabitsId;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_HEALTHHABITS", joinColumns = { @JoinColumn(name = "HEALTH_HABITS_ID", referencedColumnName = "HEALTHHABITS_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "HEALTHHABITS_ID") })
+	@JoinTable(name = "CHIROPATIENTINFO_HEALTHHABITS", joinColumns = { @JoinColumn(name = "HEALTH_HABITS_ID", referencedColumnName = "HEALTHHABITS_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") })
 	private ChiroPatient patientInfo;
 
 	@Type(type = "yes_no")
@@ -75,11 +81,11 @@ public class ChiroHealthHabits extends BaseEntity {
 	private boolean noneMedicalCare;
 
 	public Integer getHealthHabits() {
-		return healthHabits;
+		return healthHabitsId;
 	}
 
 	public void setHealthHabits(Integer healthHabits) {
-		this.healthHabits = healthHabits;
+		this.healthHabitsId = healthHabits;
 	}
 
 	public ChiroPatient getPatientInfo() {

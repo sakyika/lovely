@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.forms.chiropractic.dao;
+package com.sakk.lovely.model.forms.chiropractic.dao.impl;
 
 import java.util.List;
 
@@ -8,11 +8,14 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.sakk.lovely.exception.ChiroDuplicatePatientException;
 import com.sakk.lovely.exception.ChiroPatientNotFoundException;
 import com.sakk.lovely.model.forms.chiropractic.ChiroPatient;
+import com.sakk.lovely.model.forms.chiropractic.dao.ChiroPatientDAO;
 
+@Repository
 public class ChiroPatientDAOImpl implements ChiroPatientDAO {
 
 	static Logger logger = LoggerFactory.getLogger(ChiroPatientDAOImpl.class);

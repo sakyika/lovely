@@ -8,9 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -36,12 +33,12 @@ public class ChiroPatient extends BaseEntity {
 	private static final long serialVersionUID = 96285180113476324L;
 	static Logger logger = LoggerFactory.getLogger(ChiroPatient.class);
 
-	@Id
-	@Column(name = "CHIROPATIENT_ID", unique = true, nullable = false)
+	@Column(name = "CHIROPATIENT_ID")
 	private Integer patientId;
 
+	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
+	//@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
 	private List<ChiroExperience> chiroExperienceList;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -56,28 +53,29 @@ public class ChiroPatient extends BaseEntity {
 	//@JoinTable(name = "CHIROPATIENTINFO_HEALTHHABITS", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "HEALTH_HABITS_ID", referencedColumnName = "HEALTHHABITS_ID") })
 	private ChiroHealthHabits healthHabits;
 
+	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENT_CHILDHOODTRUAMA", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHILDHOOD_TRUAMA_ID", referencedColumnName = "CHILDHOODTRUAMA_ID") })
+	//@JoinTable(name = "CHIROPATIENT_CHILDHOODTRUAMA", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHILDHOOD_TRUAMA_ID", referencedColumnName = "CHILDHOODTRUAMA_ID") })
 	private List<ChiroChildhoodTruama> childhoolTruamaList;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") })
+	//@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") })
 	private List<ChiroMotorVehicleAccident> motorVehicleAccident;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_HOMEACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "HOME_ACCIDENT_ID", referencedColumnName = "HOMEACCIDENT_ID") })
+	//@JoinTable(name = "CHIROPATIENTINFO_HOMEACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "HOME_ACCIDENT_ID", referencedColumnName = "HOMEACCIDENT_ID") })
 	private List<ChiroHomeAccident> homeAccident;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_SPORTSACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "SPORTS_ACCIDENT_ID", referencedColumnName = "SPORTSACCIDENT_ID") })
+	//@JoinTable(name = "CHIROPATIENTINFO_SPORTSACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "SPORTS_ACCIDENT_ID", referencedColumnName = "SPORTSACCIDENT_ID") })
 	private List<ChiroSportAccident> sportsAccident;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") })
+	//@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") })
 	private List<ChiroWorkAccident> workAccident;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHIROPATIENTINFO_COMPLAINT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMPLAINT_ID", referencedColumnName = "COMPLAINT_ID") })
+	//@JoinTable(name = "CHIROPATIENTINFO_COMPLAINT", joinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMPLAINT_ID", referencedColumnName = "COMPLAINT_ID") })
 	private List<ChiroComplaint> complaint;
 
 	@Enumerated(EnumType.STRING)
@@ -260,14 +258,12 @@ public class ChiroPatient extends BaseEntity {
 		this.familyHistory = familyHistory;
 	}
 
-	public ChiroMedicalHistory getMedicalHistory() {
-		return medicalHistory;
-	}
-
-	public void setMedicalHistory(ChiroMedicalHistory medicalHistory) {
-		this.medicalHistory = medicalHistory;
-	}
-
+	/*
+	 * public ChiroMedicalHistory getMedicalHistory() { return medicalHistory; }
+	 * 
+	 * public void setMedicalHistory(ChiroMedicalHistory medicalHistory) {
+	 * this.medicalHistory = medicalHistory; }
+	 */
 	public ChiroHealthHabits getHealthHabits() {
 		return healthHabits;
 	}
@@ -325,7 +321,5 @@ public class ChiroPatient extends BaseEntity {
 	public void setComplaint(List<ChiroComplaint> complaint) {
 		this.complaint = complaint;
 	}
-	
-	
 
 }

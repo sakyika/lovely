@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -14,6 +16,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sakk.lovely.model.BaseEntity;
 import com.sakk.lovely.model.DriverPassenger;
@@ -25,12 +29,15 @@ import com.sakk.lovely.model.VehicleCollisionPart;
 
 public class ChiroMotorVehicleAccident extends BaseEntity {
 
-	@Id
+	private static final long serialVersionUID = 96285180113476324L;
+	static Logger logger = LoggerFactory.getLogger(ChiroMotorVehicleAccident.class);
+	
 	@Column(name = "MOTORVEHICLEACCIDENT_ID", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer chiroExperienceId;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	//@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") })
+	@JoinTable(name = "CHIROPATIENTINFO_MOTORVEHICLEACCIDENT", joinColumns = { @JoinColumn(name = "MOTORVEHICLE_ACCIDENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "MOTORVEHICLEACCIDENT_ID") })
 	private ChiroPatient patientInfo;
 
 	@Type(type = "yes_no")

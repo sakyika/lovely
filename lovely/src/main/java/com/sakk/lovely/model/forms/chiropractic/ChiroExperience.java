@@ -5,15 +5,19 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sakk.lovely.model.BaseEntity;
 
@@ -21,16 +25,20 @@ import com.sakk.lovely.model.BaseEntity;
  * PREVIOUS CHIROPRACTIC EXPERIENCE
  */
 
+
 @Entity
 @Table(name = "CHIRO_EXPERIENCES")
 public class ChiroExperience extends BaseEntity {
+	
+	private static final long serialVersionUID = 96285180113476324L;
+	static Logger logger = LoggerFactory.getLogger(ChiroExperience.class);
 
-	@Id
 	@Column(name = "CHIROEXPERIENCE_ID", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer chiroExperienceId;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	//@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROEXPERIENCE_ID") })
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinTable(name = "CHIROPATIENTINFO_CHIROEXPERIENCES", joinColumns = { @JoinColumn(name = "CHIRO_EXPERIENCE_ID", referencedColumnName = "CHIROEXPERIENCE_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") })
 	private ChiroPatient patientInfo;
 
 	@Column(name = "Previous_Chiropractor_Name", length = 50)

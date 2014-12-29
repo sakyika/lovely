@@ -4,12 +4,16 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sakk.lovely.model.BaseEntity;
 
@@ -17,14 +21,18 @@ import com.sakk.lovely.model.BaseEntity;
  * PAST WORK ACCIDENTS
  */
 
+@Entity
+@Table(name = "CHIRO_WORK_ACCIDENT")
 public class ChiroWorkAccident extends BaseEntity {
+	
+	private static final long serialVersionUID = 96285180113476324L;
+	static Logger logger = LoggerFactory.getLogger(ChiroWorkAccident.class);
 
-	@Id
 	@Column(name = "WORKACCIDENT_ID", unique = true, nullable = false)
 	private Integer workAccidentId;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	//@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "WORKACCIDENT_ID") })
+	@JoinTable(name = "CHIROPATIENTINFO_WORKACCIDENT", joinColumns = { @JoinColumn(name = "WORK_ACCIDENT_ID", referencedColumnName = "WORKACCIDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "CHIROPATIENT_ID") })
 	private ChiroPatient patientInfo;
 
 	@Type(type = "yes_no")

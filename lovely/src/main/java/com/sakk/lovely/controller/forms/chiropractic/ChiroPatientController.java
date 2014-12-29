@@ -20,7 +20,7 @@ public class ChiroPatientController {
 			.getLogger(ChiroPatientController.class);
 	static String businessObject = "chiropatient"; // used in RedirectAttributes
 													// messages
-
+/*
 	@Autowired
 	private ChiroPatientService patientService;
 
@@ -41,5 +41,5 @@ public class ChiroPatientController {
 		}
 		return "patient-list";
 	}
-
+*/
 }

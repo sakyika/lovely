@@ -3,6 +3,8 @@ package com.sakk.lovely.model.forms.chiropractic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -10,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sakk.lovely.model.BaseEntity;
 
@@ -20,12 +24,15 @@ import com.sakk.lovely.model.BaseEntity;
 @Entity
 @Table(name = "CHIRO_FAMILY_HISTORY")
 public class ChiroFamilyHistory extends BaseEntity {
+	
+	private static final long serialVersionUID = 96285180113476324L;
+	static Logger logger = LoggerFactory.getLogger(ChiroFamilyHistory.class);
 
-	@Id
 	@Column(name = "FAMILYHISOTRY_ID", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer familyHistoryId;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "patientId")
 	@JoinTable(name = "CHIROPATIENTINFO_FAMILYHISTORY", joinColumns = { @JoinColumn(name = "FAMILY_HISTORY_ID", referencedColumnName = "FAMILYHISOTRY_ID") }, inverseJoinColumns = { @JoinColumn(name = "CHIRO_PATIENT_ID", referencedColumnName = "FAMILYHISOTRY_ID") })
 	private ChiroPatient patientInfo;
 

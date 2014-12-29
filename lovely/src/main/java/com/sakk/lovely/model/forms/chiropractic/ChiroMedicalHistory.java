@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -14,6 +16,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sakk.lovely.model.BaseEntity;
 import com.sakk.lovely.model.Pregnancy;
@@ -23,9 +27,12 @@ import com.sakk.lovely.model.Pregnancy;
  */
 
 public class ChiroMedicalHistory extends BaseEntity {
+	
+	private static final long serialVersionUID = 96285180113476324L;
+	static Logger logger = LoggerFactory.getLogger(ChiroMedicalHistory.class);
 
-	@Id
 	@Column(name = "MEDICALHISTORY_ID", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer medicalHistoryId;
 
 	@OneToOne(cascade = CascadeType.ALL)
