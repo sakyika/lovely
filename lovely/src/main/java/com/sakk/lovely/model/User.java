@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.user;
+package com.sakk.lovely.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,8 +20,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.google.common.base.Objects;
-import com.sakk.lovely.model.BaseEntity;
-import com.sakk.lovely.model.role.Role;
 
 @Entity
 @Table(name = "USERS")

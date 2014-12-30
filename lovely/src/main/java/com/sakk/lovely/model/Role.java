@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.role;
+package com.sakk.lovely.model;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -17,8 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Objects;
-import com.sakk.lovely.model.BaseEntity;
-import com.sakk.lovely.model.user.User;
 
 @Entity
 @Table(name = "ROLES")

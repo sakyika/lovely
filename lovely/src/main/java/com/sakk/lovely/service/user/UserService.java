@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.sakk.lovely.model.user.User;
+import com.sakk.lovely.model.User;
 import com.sakk.lovely.model.user.Exceptions.DuplicateUserException;
 import com.sakk.lovely.model.user.Exceptions.UserNotFoundException;
 

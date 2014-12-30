@@ -1,8 +1,8 @@
-package com.sakk.lovely.model.user.dao;
+package com.sakk.lovely.model.dao;
 
 import java.util.List;
 
-import com.sakk.lovely.model.user.User;
+import com.sakk.lovely.model.User;
 import com.sakk.lovely.model.user.Exceptions.DuplicateUserException;
 import com.sakk.lovely.model.user.Exceptions.UserNotFoundException;
 

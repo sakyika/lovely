@@ -1,8 +1,8 @@
-package com.sakk.lovely.model.role.dao;
+package com.sakk.lovely.model.dao;
 
 import java.util.List;
 
-import com.sakk.lovely.model.role.Role;
+import com.sakk.lovely.model.Role;
 import com.sakk.lovely.model.role.Exceptions.DuplicateRoleException;
 import com.sakk.lovely.model.role.Exceptions.RoleNotFoundException;
 

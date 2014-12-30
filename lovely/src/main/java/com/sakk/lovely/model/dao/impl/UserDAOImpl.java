@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.user.dao.impl;
+package com.sakk.lovely.model.dao.impl;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sakk.lovely.model.user.User;
+import com.sakk.lovely.model.User;
+import com.sakk.lovely.model.dao.UserDAO;
 import com.sakk.lovely.model.user.Exceptions.DuplicateUserException;
 import com.sakk.lovely.model.user.Exceptions.UserNotFoundException;
-import com.sakk.lovely.model.user.dao.UserDAO;
 
 @Repository
 public class UserDAOImpl implements UserDAO {

@@ -10,10 +10,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sakk.lovely.model.user.User;
+import com.sakk.lovely.model.User;
+import com.sakk.lovely.model.dao.UserDAO;
 import com.sakk.lovely.model.user.Exceptions.DuplicateUserException;
 import com.sakk.lovely.model.user.Exceptions.UserNotFoundException;
-import com.sakk.lovely.model.user.dao.UserDAO;
 import com.sakk.lovely.service.user.UserService;
 
 @Service

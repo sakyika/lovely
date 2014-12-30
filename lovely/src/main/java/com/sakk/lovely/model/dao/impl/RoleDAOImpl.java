@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.role.dao.impl;
+package com.sakk.lovely.model.dao.impl;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sakk.lovely.model.role.Role;
+import com.sakk.lovely.model.Role;
+import com.sakk.lovely.model.dao.RoleDAO;
 import com.sakk.lovely.model.role.Exceptions.DuplicateRoleException;
 import com.sakk.lovely.model.role.Exceptions.RoleNotFoundException;
-import com.sakk.lovely.model.role.dao.RoleDAO;
 
 @Repository
 public class RoleDAOImpl implements RoleDAO {
