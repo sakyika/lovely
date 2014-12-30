@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.role.Exceptions;
+package com.sakk.lovely.model.exceptions;
 
 public class RoleNotFoundException extends Exception {
 	private static final long serialVersionUID = -1402337502045439388L;

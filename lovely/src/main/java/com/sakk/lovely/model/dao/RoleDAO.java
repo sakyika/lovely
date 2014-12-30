@@ -3,8 +3,8 @@ package com.sakk.lovely.model.dao;
 import java.util.List;
 
 import com.sakk.lovely.model.Role;
-import com.sakk.lovely.model.role.Exceptions.DuplicateRoleException;
-import com.sakk.lovely.model.role.Exceptions.RoleNotFoundException;
+import com.sakk.lovely.model.exceptions.DuplicateRoleException;
+import com.sakk.lovely.model.exceptions.RoleNotFoundException;
 
 public interface RoleDAO {
 

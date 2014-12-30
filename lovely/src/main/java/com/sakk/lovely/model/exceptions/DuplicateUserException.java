@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.user.Exceptions;
+package com.sakk.lovely.model.exceptions;
 
 public class DuplicateUserException extends Exception {
 	private static final long serialVersionUID = 6532938055712085137L;

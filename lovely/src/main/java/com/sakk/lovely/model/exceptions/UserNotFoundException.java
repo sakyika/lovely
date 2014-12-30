@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.user.Exceptions;
+package com.sakk.lovely.model.exceptions;
 
 public class UserNotFoundException extends Exception {
     private static final long serialVersionUID = 2663040220470909688L;

@@ -3,8 +3,8 @@ package com.sakk.lovely.model.dao;
 import java.util.List;
 
 import com.sakk.lovely.model.User;
-import com.sakk.lovely.model.user.Exceptions.DuplicateUserException;
-import com.sakk.lovely.model.user.Exceptions.UserNotFoundException;
+import com.sakk.lovely.model.exceptions.DuplicateUserException;
+import com.sakk.lovely.model.exceptions.UserNotFoundException;
 
 public interface UserDAO {
 

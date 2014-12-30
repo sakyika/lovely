@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.role.Exceptions;
+package com.sakk.lovely.model.exceptions;
 
 public class DuplicateRoleException extends Exception {
 	private static final long serialVersionUID = 4867645708199153376L;

@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sakk.lovely.model.User;
 import com.sakk.lovely.model.dao.UserDAO;
-import com.sakk.lovely.model.user.Exceptions.DuplicateUserException;
-import com.sakk.lovely.model.user.Exceptions.UserNotFoundException;
+import com.sakk.lovely.model.exceptions.DuplicateUserException;
+import com.sakk.lovely.model.exceptions.UserNotFoundException;
 import com.sakk.lovely.service.user.UserService;
 
 @Service

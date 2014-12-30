@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import com.sakk.lovely.model.Role;
 import com.sakk.lovely.model.dao.RoleDAO;
-import com.sakk.lovely.model.role.Exceptions.DuplicateRoleException;
-import com.sakk.lovely.model.role.Exceptions.RoleNotFoundException;
+import com.sakk.lovely.model.exceptions.DuplicateRoleException;
+import com.sakk.lovely.model.exceptions.RoleNotFoundException;
 
 @Repository
 public class RoleDAOImpl implements RoleDAO {
