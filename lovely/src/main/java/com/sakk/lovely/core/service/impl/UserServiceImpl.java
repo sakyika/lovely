@@ -1,4 +1,4 @@
-package com.sakk.lovely.service.impl;
+package com.sakk.lovely.core.service.impl;
 
 import java.util.List;
 

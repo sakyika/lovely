@@ -14,7 +14,7 @@ import com.sakk.lovely.core.exceptions.AccessDeniedExceptionHandler;
 
 @Configuration
 @EnableWebMvcSecurity
-@ComponentScan(basePackageClasses=com.sakk.lovely.service.impl.UserServiceImpl.class)
+@ComponentScan(basePackageClasses=com.sakk.lovely.core.service.impl.UserServiceImpl.class)
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
