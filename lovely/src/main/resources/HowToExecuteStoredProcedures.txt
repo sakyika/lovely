@@ -1,0 +1,1 @@
+mysql -u lovely -p -D lovely < MySQL-Data-Using-StoredProx.sql
