@@ -10,15 +10,15 @@ import com.sakk.lovely.model.exceptions.UserNotFoundException;
 
 public interface UserService extends UserDetailsService {
 
-	public void addUser(User user) throws DuplicateUserException;
+    public void addUser(User user) throws DuplicateUserException;
 
-	public User getUser(int userId) throws UserNotFoundException;
+    public User getUser(int userId) throws UserNotFoundException;
 
-	public User getUser(String username) throws UserNotFoundException;
+    public User getUser(String username) throws UserNotFoundException;
 
-	public void updateUser(User user) throws UserNotFoundException;
+    public void updateUser(User user) throws UserNotFoundException, DuplicateUserException;
 
-	public void deleteUser(int userId) throws UserNotFoundException;
+    public void deleteUser(int userId) throws UserNotFoundException;
 
-	public List<User> getUsers();
+    public List<User> getUsers();
 }

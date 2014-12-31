@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sakk.lovely.dao.PermissionDAO;
 import com.sakk.lovely.model.Permission;
-import com.sakk.lovely.model.dao.PermissionDAO;
 import com.sakk.lovely.model.exceptions.DuplicatePermissionException;
 import com.sakk.lovely.model.exceptions.PermissionNotFoundException;
 

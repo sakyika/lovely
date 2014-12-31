@@ -24,7 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.google.common.base.Objects;
 
 @Entity  
-@Table(name="USERS")
+@Table(name="USER")
 public class User extends BaseEntity implements UserDetails {
     /*
         CREATE TABLE `USERS` (

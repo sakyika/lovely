@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sakk.lovely.dao.RoleDAO;
 import com.sakk.lovely.model.Role;
-import com.sakk.lovely.model.dao.RoleDAO;
 import com.sakk.lovely.model.exceptions.DuplicateRoleException;
 import com.sakk.lovely.model.exceptions.RoleNotFoundException;
 

@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.dao;
+package com.sakk.lovely.dao;
 
 import java.util.List;
 
@@ -14,7 +14,8 @@ public interface UserDAO {
 
 	public User getUser(String username) throws UserNotFoundException;
 
-	public void updateUser(User user) throws UserNotFoundException;
+	public void updateUser(User user) throws UserNotFoundException,
+			DuplicateUserException;
 
 	public void deleteUser(int userId) throws UserNotFoundException;
 

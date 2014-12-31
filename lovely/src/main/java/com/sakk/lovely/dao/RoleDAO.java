@@ -1,4 +1,4 @@
-package com.sakk.lovely.model.dao;
+package com.sakk.lovely.dao;
 
 import java.util.List;
 

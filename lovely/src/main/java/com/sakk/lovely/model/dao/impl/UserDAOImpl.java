@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sakk.lovely.dao.UserDAO;
 import com.sakk.lovely.model.User;
-import com.sakk.lovely.model.dao.UserDAO;
 import com.sakk.lovely.model.exceptions.DuplicateUserException;
 import com.sakk.lovely.model.exceptions.UserNotFoundException;
 
@@ -81,13 +81,30 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void updateUser(User user) throws UserNotFoundException {
+	public void updateUser(User user) throws UserNotFoundException,
+			DuplicateUserException {
 		User userToUpdate = getUser(user.getId());
-		userToUpdate.setUsername(user.getUsername());
-		userToUpdate.setPassword(user.getPassword());
-		userToUpdate.setEnabled(user.getEnabled());
-		userToUpdate.setRole(user.getRole());
-		getCurrentSession().update(userToUpdate);
+
+		try {
+			User userCheck = getUser(user.getUsername());
+			if (userCheck.getId() == userToUpdate.getId()) {
+				userToUpdate.setEnabled(user.getEnabled());
+				userToUpdate.setPassword(user.getPassword());
+				userToUpdate.setUsername(user.getUsername());
+				userToUpdate.setRole(user.getRole());
+				getCurrentSession().update(userToUpdate);
+			} else {
+				String message = "The user [" + userCheck.getUsername()
+						+ "] already exists";
+				throw new DuplicateUserException(message);
+			}
+		} catch (UserNotFoundException e) {
+			userToUpdate.setEnabled(user.getEnabled());
+			userToUpdate.setPassword(user.getPassword());
+			userToUpdate.setUsername(user.getUsername());
+			userToUpdate.setRole(user.getRole());
+			getCurrentSession().update(userToUpdate);
+		}
 	}
 
 	@Override
@@ -101,7 +118,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<User> getUsers() {
-		return getCurrentSession().createQuery("from User").list();
+		String hql = "FROM User u ORDER BY u.id";
+		return getCurrentSession().createQuery(hql).list();
 	}
-
 }

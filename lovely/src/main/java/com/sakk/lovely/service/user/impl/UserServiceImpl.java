@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sakk.lovely.dao.UserDAO;
 import com.sakk.lovely.model.User;
-import com.sakk.lovely.model.dao.UserDAO;
 import com.sakk.lovely.model.exceptions.DuplicateUserException;
 import com.sakk.lovely.model.exceptions.UserNotFoundException;
 import com.sakk.lovely.service.user.UserService;
@@ -20,19 +20,19 @@ import com.sakk.lovely.service.user.UserService;
 @Transactional
 public class UserServiceImpl implements UserService {
 	static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-
-	@Autowired
-	private UserDAO userDAO;
+	
+    @Autowired
+    private UserDAO userDAO;
 
 	@Override
 	public void addUser(User user) throws DuplicateUserException {
 		userDAO.addUser(user);
 	}
 
-	@Override
-	public User getUser(int userId) throws UserNotFoundException {
-		return userDAO.getUser(userId);
-	}
+    @Override
+    public User getUser(int userId) throws UserNotFoundException {
+        return userDAO.getUser(userId);
+    }
 
 	@Override
 	public User getUser(String username) throws UserNotFoundException {
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void updateUser(User user) throws UserNotFoundException {
+	public void updateUser(User user) throws UserNotFoundException, DuplicateUserException {
 		userDAO.updateUser(user);
 	}
 
@@ -53,14 +53,13 @@ public class UserServiceImpl implements UserService {
 	public List<User> getUsers() {
 		return userDAO.getUsers();
 	}
-
-	@Override
-	public UserDetails loadUserByUsername(String username)
-			throws UsernameNotFoundException {
-		try {
-			return getUser(username);
-		} catch (UserNotFoundException e) {
-			throw new UsernameNotFoundException(e.getMessage());
-		}
-	}
+	
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        try {
+            return getUser(username);
+        } catch (UserNotFoundException e) {
+            throw new UsernameNotFoundException(e.getMessage());
+        }
+    }
 }

@@ -20,7 +20,7 @@ import com.sakk.lovely.model.exceptions.AccessDeniedExceptionHandler;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.sakk.lovely.model", "com.sakk.lovely.model", "com.sakk.lovely.service", "com.sakk.lovely.util"})
+@ComponentScan(basePackages = {"com.sakk.lovely.model", "com.sakk.lovely.dao", "com.sakk.lovely.dao.impl", "com.sakk.lovely.service"})
 @PropertySource("classpath:database.properties")
 public class RootConfig {
 
