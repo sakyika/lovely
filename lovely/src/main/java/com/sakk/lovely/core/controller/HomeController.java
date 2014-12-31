@@ -1,7 +1,11 @@
 package com.sakk.lovely.core.controller;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,16 +18,28 @@ public class HomeController {
 
 	@RequestMapping(value = "/")
 	public String mainPage() {
-		String rolename = getRole();
-		logger.debug("Directing to home page for: [" + rolename + "]");
+		Collection<GrantedAuthority> authorities = getAuthorities();
+		String rolename;
 
-		if (rolename.equals("ROLE_ADMIN")) {
-			return "home-admin";
-		} else if (rolename.equals("ROLE_TRADER")) {
-			return "home-trader";
-		} else {
-			return "home-user";
+		for (GrantedAuthority authority : authorities) {
+			rolename = authority.getAuthority();
+
+			if (rolename.equals("ROLE_ADMIN")) {
+				logger.debug("Directing to home page for: [" + rolename + "]");
+				return "home-admin";
+			}
+			if (rolename.equals("ROLE_TRADER")) {
+				logger.debug("Directing to home page for: [" + rolename + "]");
+				return "home-trader";
+			}
+			if (rolename.equals("ROLE_USER")) {
+				logger.debug("Directing to home page for: [" + rolename + "]");
+				return "home-user";
+			}
 		}
+
+		logger.error("Role not found - directing to home page for ROLE_USER");
+		return "home-user";
 	}
 
 	@RequestMapping(value = "/index")
@@ -31,20 +47,16 @@ public class HomeController {
 		return "redirect:/";
 	}
 
-	private String getRole() {
-		String rolename = "";
+	private Collection<GrantedAuthority> getAuthorities() {
+		Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 		Object principal = SecurityContextHolder.getContext()
 				.getAuthentication().getPrincipal();
-
-		System.out.println("right after getting principal"
-				+ principal.toString());
-
 		if (principal instanceof User) {
-			rolename = ((User) principal).getRole().getRolename();
+			authorities = ((User) principal).getAuthorities();
 		} else {
-			logger.error("Principal is not an instance of com.sakk.lovely.model.user.User");
+			logger.error("Principal is not an instance of com.dtr.oas.model.User");
 		}
-		return rolename;
+		return authorities;
 	}
 
 }

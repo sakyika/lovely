@@ -1,4 +1,4 @@
-package com.sakk.lovely.chiropractic.forms.service;
+package com.sakk.lovely.chiropractic.forms.service.impl;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import com.sakk.lovely.chiropractic.exception.ChiroDuplicatePatientException;
 import com.sakk.lovely.chiropractic.exception.ChiroPatientNotFoundException;
 import com.sakk.lovely.chiropractic.forms.dao.ChiroPatientDAO;
 import com.sakk.lovely.chiropractic.forms.model.ChiroPatient;
+import com.sakk.lovely.chiropractic.forms.service.ChiroPatientService;
 
 @Service
 @Transactional
