@@ -26,7 +26,7 @@ public class HomeController {
 
 			if (rolename.equals("ROLE_ADMIN")) {
 				logger.debug("Directing to home page for: [" + rolename + "]");
-				return "home-admin";
+				return "core/home-admin";
 			}
 			if (rolename.equals("ROLE_TRADER")) {
 				logger.debug("Directing to home page for: [" + rolename + "]");

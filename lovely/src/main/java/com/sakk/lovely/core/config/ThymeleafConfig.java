@@ -16,6 +16,7 @@ public class ThymeleafConfig {
 		templateResolver.setPrefix("/WEB-INF/views/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode("HTML5");
+		templateResolver.setCacheable(false);
 		return templateResolver;
 	}
 
@@ -30,7 +31,6 @@ public class ThymeleafConfig {
 	public ThymeleafViewResolver thymeleafViewResolver() {
 		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
 		resolver.setTemplateEngine(templateEngine());
-		resolver.setCache(false);
 		return resolver;
 	}
 }
