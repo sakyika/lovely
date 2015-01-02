@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sakk.lovely.core.model.User;
 
 @Controller
-public class HomeController {
-	static Logger logger = LoggerFactory.getLogger(HomeController.class);
+public class LinkController {
+	static Logger logger = LoggerFactory.getLogger(LinkController.class);
 
 	@RequestMapping(value = "/")
 	public String mainPage() {
@@ -41,11 +41,7 @@ public class HomeController {
 		logger.error("Role not found - directing to home page for ROLE_USER");
 		return "home-user";
 	}
-
-	@RequestMapping(value = "/index")
-	public String indexPage() {
-		return "redirect:/";
-	}
+	
 
 	private Collection<GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
@@ -54,7 +50,7 @@ public class HomeController {
 		if (principal instanceof User) {
 			authorities = ((User) principal).getAuthorities();
 		} else {
-			logger.error("Principal is not an instance of com.dtr.oas.model.User");
+			logger.error("Principal is not an instance of com.sakk.lovely.model.User");
 		}
 		return authorities;
 	}

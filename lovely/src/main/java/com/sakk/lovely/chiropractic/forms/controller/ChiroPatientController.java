@@ -14,7 +14,7 @@ import com.sakk.lovely.chiropractic.forms.model.ChiroPatient;
 import com.sakk.lovely.chiropractic.forms.service.ChiroPatientService;
 
 @Controller
-@RequestMapping(value = "/chiropatient")
+@RequestMapping(value = "/chiro")
 public class ChiroPatientController {
 	static Logger logger = LoggerFactory
 			.getLogger(ChiroPatientController.class);
@@ -42,4 +42,10 @@ public class ChiroPatientController {
 		return "patient-list";
 	}
 */
+	
+	@RequestMapping(value = "/newpatient")
+	public String newChiroPatient() {
+		return "chiro/forms/new-patient-form.html";
+	}
+	
 }

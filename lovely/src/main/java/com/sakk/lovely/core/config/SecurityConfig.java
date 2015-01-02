@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.sakk.lovely.core.exceptions.AccessDeniedExceptionHandler;
 
@@ -44,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
-            .logout().logoutUrl("/logout")
+            .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .permitAll()
                 .and()
             .exceptionHandling()
