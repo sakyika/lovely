@@ -77,7 +77,7 @@
 			</button>
 
 			<div class="navbar-header pull-left">
-				<a href="index.html" class="navbar-brand"> <small> <i
+				<a data-th-href="@{/}" href="/" class="navbar-brand"> <small> <i
 						class="fa fa-medkit"></i> Lovely Admin
 				</small>
 				</a>
@@ -366,7 +366,7 @@
 			<!-- /.sidebar-shortcuts -->
 		<div data-th-fragment="sidebar-shortcuts">
 			<ul class="nav nav-list">
-				<li class="active open"><a href="index.html"> <i
+				<li class="active open"><a data-th-href="@{/}" href="/"> <i
 						class="menu-icon fa fa-h-square"></i> <span class="menu-text">
 							Home </span>
 				</a> <b class="arrow"></b></li>
@@ -383,7 +383,7 @@
 						</a> <b class="arrow"></b>
 
 							<ul class="submenu">
-								<li class=""><a data-th-href="@{/chiro/newpatient}" href="/chiro/newpatient"> <i
+								<li class="" ><a data-th-href="@{/chiro/newpatient}" href="/chiro/newpatient"> <i
 										class="menu-icon fa fa-caret-right"></i> New Patient
 								</a> <b class="arrow"></b></li>
 
@@ -858,6 +858,21 @@
  window.jQuery || document.write("<script data-th-src='@{/resources/ace-assets/js/jquery1x.min.js}' src='/resources/ace-assets/js/jquery1x.min.js'>"+"<"+"/script>");
 </script>
 <![endif]-->
+
+	<script type="text/javascript">
+		//<![CDATA[
+	
+		 //   $("new-chiro-patient-a") $('new-chiro-patient-li').
+		 
+		 $(function(){
+  			$("li").on('click',function(){
+    			$(this).addClass('active');
+  			});
+		});
+		           
+		//]]>
+	</script>
+
 	<script type="text/javascript">
 		//<![CDATA[
 		if ('ontouchstart' in document.documentElement)
