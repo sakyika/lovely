@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	
+<tiles-definitions>
+	
+	<definition name="admin-home" extends="standardLayout">
+ 
+ 		<put-attribute name="titleBar" value="/core/admin-home.html :: titleBar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="icon-bar" value="/core/admin-home.html :: icon-bar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="breadcrumb-search-bar" value="/core/admin-home.html :: breadcrumb-search-bar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="left-navigation" value="/core/admin-home.html :: left-navigation" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="page-header" value="/core/admin-home.html :: page-header" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="body-content" value="/core/admin-home.html :: body-content" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="footer" value="/core/admin-home.html :: footer" type="thymeleaf"/>
+ 		
+	</definition>
+	
+	<definition name="trader-home" extends="standardLayout">
+ 		<put-attribute name="body" value="/core/trader-home.html :: content" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="user-home" extends="standardLayout">
+ 		<put-attribute name="body" value="/core/user-home.html :: content" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="login" extends="standardLogin">
+		<put-attribute name="body" value="/core/login.html :: content" type="thymeleaf"/>
+	</definition>
+	
+</tiles-definitions>

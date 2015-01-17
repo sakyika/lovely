@@ -10,12 +10,12 @@ public class Initializer extends
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { RootConfig.class, SecurityConfig.class,WebFlowConfig.class };
+		return new Class[] { RootConfig.class, SecurityConfig.class };
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class<?>[] { ThymeleafConfig.class, WebAppConfig.class };
+		return new Class<?>[] { ThymeleafConfig.class, WebAppConfig.class, WebFlowConfig.class };
 	}
 
 	@Override

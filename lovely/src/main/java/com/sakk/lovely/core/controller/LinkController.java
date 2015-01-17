@@ -26,15 +26,15 @@ public class LinkController {
 
 			if (rolename.equals("ROLE_ADMIN")) {
 				logger.debug("Directing to home page for: [" + rolename + "]");
-				return "core/home-admin";
+				return "admin-home";
 			}
 			if (rolename.equals("ROLE_TRADER")) {
 				logger.debug("Directing to home page for: [" + rolename + "]");
-				return "home-trader";
+				return "trader-home";
 			}
 			if (rolename.equals("ROLE_USER")) {
 				logger.debug("Directing to home page for: [" + rolename + "]");
-				return "home-user";
+				return "user-home";
 			}
 		}
 

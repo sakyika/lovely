@@ -24,7 +24,7 @@ public class ThymeleafConfig {
 	public TemplateResolver templateResolver() {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/views/");
-		templateResolver.setSuffix(".html");
+		//templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode("HTML5");
 		templateResolver.setCacheable(false);
 		return templateResolver;
@@ -32,12 +32,12 @@ public class ThymeleafConfig {
 
 	@Bean
 	public SpringTemplateEngine templateEngine() {
-		
+
 		Set<IDialect> dialects = new LinkedHashSet<IDialect>();
 		dialects.add(new TilesDialect());
 		dialects.add(new SpringSecurityDialect());
 		dialects.add(new ConditionalCommentsDialect());
-		
+
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
 		templateEngine.setTemplateResolver(templateResolver());
 		templateEngine.setAdditionalDialects(dialects);
@@ -51,11 +51,12 @@ public class ThymeleafConfig {
 		resolver.setTemplateEngine(templateEngine());
 		return resolver;
 	}
-	
+
 	@Bean
-	public ThymeleafTilesConfigurer tilesConfigurer(){
+	public ThymeleafTilesConfigurer tilesConfigurer() {
 		ThymeleafTilesConfigurer configurer = new ThymeleafTilesConfigurer();
-		configurer.setDefinitions("/WEB-INF/**/view.xml");
+		configurer.setDefinitions(new String[] { "/WEB-INF/**/views.xml" });
 		return configurer;
 	}
+
 }
