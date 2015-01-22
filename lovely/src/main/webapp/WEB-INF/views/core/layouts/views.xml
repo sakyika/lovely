@@ -4,6 +4,57 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
+    
     <definition name="standardLayout" template="/core/layouts/standardlayout.html" templateType="thymeleaf"/>
-    <definition name="standardLogin" template="/core/layouts/standardlogin.html" templateType="thymeleaf"/>    	
+    <definition name="standardLogin" template="/core/layouts/standardlogin.html" templateType="thymeleaf"/>
+    
+    
+    <definition name="admin-layout" extends="standardLayout">
+ 
+ 		<put-attribute name="titleBar" value="/core/admin-home.html :: titleBar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="icon-bar" value="/core/admin-home.html :: icon-bar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="breadcrumb-search-bar" value="/core/admin-home.html :: breadcrumb-search-bar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="left-navigation" value="/core/admin-home.html :: left-navigation" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="page-header" value="/core/admin-home.html :: page-header" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="footer" value="/core/admin-home.html :: footer" type="thymeleaf"/>
+ 		
+	</definition>
+	
+	<definition name="trader-layout" extends="standardLayout">
+ 
+ 		<put-attribute name="titleBar" value="/core/trader-home.html :: titleBar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="icon-bar" value="/core/trader-home.html :: icon-bar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="breadcrumb-search-bar" value="/core/trader-home.html :: breadcrumb-search-bar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="left-navigation" value="/core/trader-home.html :: left-navigation" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="page-header" value="/core/trader-home.html :: page-header" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="footer" value="/core/trader-home.html :: footer" type="thymeleaf"/>
+ 		
+	</definition>
+	
+	<definition name="user-layout" extends="standardLayout">
+ 
+ 		<put-attribute name="titleBar" value="/core/user-home.html :: titleBar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="icon-bar" value="/core/user-home.html :: icon-bar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="breadcrumb-search-bar" value="/core/user-home.html :: breadcrumb-search-bar" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="left-navigation" value="/core/user-home.html :: left-navigation" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="page-header" value="/core/user-home.html :: page-header" type="thymeleaf"/>
+ 		
+ 		<put-attribute name="footer" value="/core/user-home.html :: footer" type="thymeleaf"/>
+ 		
+	</definition>
+        	
 </tiles-definitions>
