@@ -43,9 +43,9 @@ public class ChiroPatientController {
 	}
 */
 	
-	@RequestMapping(value = "/newpatient")
+	@RequestMapping(value = "forms/newpatient", method = RequestMethod.GET)
 	public String newChiroPatient() {
-		return "chiro/forms/new-patient-form";
+		return "chiro/forms/newpatient";
 	}
 	
 }

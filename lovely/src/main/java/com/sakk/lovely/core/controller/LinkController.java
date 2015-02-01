@@ -18,8 +18,11 @@ public class LinkController {
 
 	@RequestMapping(value = "/")
 	public String mainPage() {
+
+/*
 		Collection<GrantedAuthority> authorities = getAuthorities();
 		String rolename;
+
 
 		for (GrantedAuthority authority : authorities) {
 			rolename = authority.getAuthority();
@@ -39,10 +42,13 @@ public class LinkController {
 		}
 
 		logger.error("Role not found - directing to home page for ROLE_USER");
-		return "home-user";
+		
+*/
+
+		return "home";
 	}
 	
-
+/*
 	private Collection<GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 		Object principal = SecurityContextHolder.getContext()
@@ -54,5 +60,7 @@ public class LinkController {
 		}
 		return authorities;
 	}
+
+*/
 
 }

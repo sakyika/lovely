@@ -26,7 +26,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	// Maps resources path to webapp/resources
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations(
-				"/resources/");
+				"/resources/", "/", "classpath:/META-INF/web-resources/");
 	}
 
 	@Bean

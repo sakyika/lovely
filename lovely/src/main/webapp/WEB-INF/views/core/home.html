@@ -74,7 +74,7 @@
 		
 		<!-- Title bar begins here -->
 		
-		<div tiles:replace="titleBar">
+		<div class="titleBar">
 		
 		<div class="navbar-container" id="navbar-container">
 			<button type="button" class="navbar-toggle menu-toggler pull-left"
@@ -351,9 +351,9 @@
 
 			<!-- Icon bar begins -->
 
-			<div tiles:replace="icon-bar">
+			<div class="icon-bar">
 
-		 <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+			<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 				<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
 					<button class="btn btn-success">
 						<i class="ace-icon fa fa-signal"></i>
@@ -384,7 +384,7 @@
 			<!-- Begining of menu -->
 
 			
-			<div tiles:replace="left-navigation">
+			<div class="left-navigation">
 			<div>
 				<ul class="nav nav-list">
 					<li class="active open"><a data-th-href="@{/}" href="/"> <i
@@ -704,7 +704,7 @@
 		<div class="main-content">
 			<div class="main-content-inner">
 			
-				<div tiles:replace="breadcrumb-search-bar">
+				<div class="breadcrumb-search-bar">
 			
 				<div class="breadcrumbs" id="breadcrumbs">
 					<script type="text/javascript">
@@ -814,7 +814,7 @@
 					
 					<!-- Page header begins -->
 
-					<div title:replace="page-header">
+					<div title:fragment="page-header">
 
 					<div class="page-header">
 						<h1>
@@ -832,13 +832,14 @@
 							
 							<!-- Body begins here -->
 							
-							<div tiles:replace="body-content">
+
+							<div tiles:fragment="body-content">
 							
-							
+							Finally got it figured out
 							
 							</div> <!-- Body ends here -->
-		 			
-
+							
+ 
 							<!-- PAGE CONTENT ENDS -->
 						</div>
 						<!-- /.col -->
@@ -852,7 +853,6 @@
 
 		<!-- Page footer begins -->
 
-		<div tiles:replace="footer">
 		<div class="footer">
 			<div class="footer-inner">
 				<div class="footer-content">
@@ -868,7 +868,6 @@
 					</span>
 				</div>
 			</div>
-		</div>
 		</div> <!-- Page footer ends -->
 
 		<a href="#" id="btn-scroll-up"
@@ -902,12 +901,10 @@
 
 	<!-- <![endif]-->
 
-	<!--[if IE]> 
+	<!--[if IE]>
 <script type="text/javascript">
-
  window.jQuery || document.write("<script data-th-src='@{/resources/ace-assets/js/jquery1x.min.js}' src='/resources/ace-assets/js/jquery1x.min.js'>"+"<"+"/script>");
-
- </script>
+</script>
 <![endif]-->
 	<script type="text/javascript">
 		//<![CDATA[
@@ -921,231 +918,12 @@
 		src="/resources/ace-assets/js/bootstrap.min.js">
 		
 	</script>
-	
-	
-	<!-- page specific plugin scripts: Blank page -->
+	<!-- page specific plugin scripts -->
 	<!-- ace scripts -->
 	<script data-th-src="@{/resources/ace-assets/js/ace-elements.min.js}"
 		src="/resources/ace-assets/js/ace-elements.min.js"></script>
 	<script data-th-src="@{/resources/ace-assets/js/ace.min.js}"
 		src="/resources/ace-assets/js/ace.min.js"></script>
 	<!-- inline scripts related to this page -->
-	
-	
-	<!-- page specific plugin scripts: Form wizard -->
-	<script data-th-src="@{/resources/ace-assets/js/fuelux.wizard.min.js}" src="/resources/ace-assets/js/fuelux.wizard.min.js" ></script>
-	<script data-th-src="@{/resources/ace-assets/js/jquery.validate.min.js}" src="/resources/ace-assets/js/jquery.validate.min.js" ></script>
-	<script data-th-src="@{/resources/ace-assets/js/additional-methods.min.js}" src="/resources/ace-assets/js/additional-methods.min.js"></script>
-	<script data-th-src="@{/resources/ace-assets/js/bootbox.min.js}" src="/resources/ace-assets/js/bootbox.min.js"></script>
-	<script data-th-src="@{/resources/ace-assets/js/jquery.maskedinput.min.js}" src="/resources/ace-assets/js/jquery.maskedinput.min.js"></script>
-	<script data-th-src="@{/resources/ace-assets/js/select2.min.js}" src="/resources/ace-assets/js/select2.min.js"></script>
-
-
-	<!-- inline scripts related to this page: Form wizard -->
-	<script type="text/javascript">
-	//<![CDATA[
-	
-		jQuery(function($) {
-
-			$('[data-rel=tooltip]').tooltip();
-
-			$(".select2").css('width', '200px').select2({
-				allowClear : true
-			}).on('change', function() {
-				$(this).closest('form').validate().element($(this));
-			});
-
-			var $validation = false;
-			$('#fuelux-wizard-container')
-					.ace_wizard({
-					//step: 2 //optional argument. wizard will jump to step "2" at first
-					//buttons: '.wizard-actions:eq(0)'
-					})
-					.on('actionclicked.fu.wizard', function(e, info) {
-						if (info.step == 1 && $validation) {
-							if (!$('#validation-form').valid())
-								e.preventDefault();
-						}
-					})
-					.on(
-							'finished.fu.wizard',
-							function(e) {
-								bootbox
-										.dialog({
-											message : "Thank you! Your information was successfully saved!",
-											buttons : {
-												"success" : {
-													"label" : "OK",
-													"className" : "btn-sm btn-primary"
-												}
-											}
-										});
-							}).on('stepclick.fu.wizard', function(e) {
-						//e.preventDefault();//this will prevent clicking and selecting steps
-					});
-
-			//jump to a step
-			/**
-			var wizard = $('#fuelux-wizard-container').data('fu.wizard')
-			wizard.currentStep = 3;
-			wizard.setState();
-			 */
-
-			//determine selected step
-			//wizard.selectedItem().step
-
-			//hide or show the other form which requires validation
-			//this is for demo only, you usullay want just one form in your application
-			$('#skip-validation').removeAttr('checked').on('click', function() {
-				$validation = this.checked;
-				if (this.checked) {
-					$('#sample-form').hide();
-					$('#validation-form').removeClass('hide');
-				} else {
-					$('#validation-form').addClass('hide');
-					$('#sample-form').show();
-				}
-			})
-
-			//documentation : http://docs.jquery.com/Plugins/Validation/validate
-
-			$.mask.definitions['~'] = '[+-]';
-			$('#phone').mask('(999) 999-9999');
-
-			jQuery.validator.addMethod("phone", function(value, element) {
-				return this.optional(element)
-						|| /^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value);
-			}, "Enter a valid phone number.");
-
-			$('#validation-form')
-					.validate(
-							{
-								errorElement : 'div',
-								errorClass : 'help-block',
-								focusInvalid : false,
-								ignore : "",
-								rules : {
-									email : {
-										required : true,
-										email : true
-									},
-									password : {
-										required : true,
-										minlength : 5
-									},
-									password2 : {
-										required : true,
-										minlength : 5,
-										equalTo : "#password"
-									},
-									name : {
-										required : true
-									},
-									phone : {
-										required : true,
-										phone : 'required'
-									},
-									url : {
-										required : true,
-										url : true
-									},
-									comment : {
-										required : true
-									},
-									state : {
-										required : true
-									},
-									platform : {
-										required : true
-									},
-									subscription : {
-										required : true
-									},
-									gender : {
-										required : true,
-									},
-									agree : {
-										required : true,
-									}
-								},
-
-								messages : {
-									email : {
-										required : "Please provide a valid email.",
-										email : "Please provide a valid email."
-									},
-									password : {
-										required : "Please specify a password.",
-										minlength : "Please specify a secure password."
-									},
-									state : "Please choose state",
-									subscription : "Please choose at least one option",
-									gender : "Please choose gender",
-									agree : "Please accept our policy"
-								},
-
-								highlight : function(e) {
-									$(e).closest('.form-group').removeClass(
-											'has-info').addClass('has-error');
-								},
-
-								success : function(e) {
-									$(e).closest('.form-group').removeClass(
-											'has-error');//.addClass('has-info');
-									$(e).remove();
-								},
-
-								errorPlacement : function(error, element) {
-									if (element.is('input[type=checkbox]')
-											|| element.is('input[type=radio]')) {
-										var controls = element
-												.closest('div[class*="col-"]');
-										if (controls.find(':checkbox,:radio').length > 1)
-											controls.append(error);
-										else
-											error.insertAfter(element.nextAll(
-													'.lbl:eq(0)').eq(0));
-									} else if (element.is('.select2')) {
-										error
-												.insertAfter(element
-														.siblings('[class*="select2-container"]:eq(0)'));
-									} else if (element.is('.chosen-select')) {
-										error
-												.insertAfter(element
-														.siblings('[class*="chosen-container"]:eq(0)'));
-									} else
-										error.insertAfter(element.parent());
-								},
-
-								submitHandler : function(form) {
-								},
-								invalidHandler : function(form) {
-								}
-							});
-
-			$('#modal-wizard-container').ace_wizard();
-			$('#modal-wizard .wizard-actions .btn[data-dismiss=modal]')
-					.removeAttr('disabled');
-
-			/**
-			$('#date').datepicker({autoclose:true}).on('changeDate', function(ev) {
-				$(this).closest('form').validate().element($(this));
-			});
-			
-			$('#mychosen').chosen().on('change', function(ev) {
-				$(this).closest('form').validate().element($(this));
-			});
-			 */
-
-			$(document).one('ajaxloadstart.page', function(e) {
-				//in ajax mode, remove remaining elements before leaving page
-				$('[class*=select2]').remove();
-			});
-		})
-		//]]>
-	</script>
-	
-	
-	
 </body>
 </html>
