@@ -15,5 +15,5 @@
 	<definition name="chiro/forms/newpatient" extends="layout" templateType="thymeleaf">
 		<put-attribute name="body-content" value="/chiro/forms/newpatient.html :: body-content" type="thymeleaf"/>
 	</definition>
-         	
+          	
 </tiles-definitions>
